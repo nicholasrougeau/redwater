@@ -164,23 +164,23 @@ export const Background: React.FC = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none bg-[#050202]">
-      
+    <div className="fixed inset-0 z-0 overflow-hidden bg-[#050202]">
+
       {/* Dynamic Mouse Glow - More Intense */}
-      <div 
+      <div
         ref={glowRef}
-        className="absolute w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 bg-accent-600/10 rounded-full blur-[120px] mix-blend-screen"
+        className="absolute w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 bg-accent-600/15 rounded-full blur-[140px] pointer-events-none"
         style={{ top: '50%', left: '50%' }}
       />
-      
-      {/* Static Ambient Glows */}
-      <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-orange-900/20 rounded-full blur-[150px] animate-pulse-slow" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-red-900/10 rounded-full blur-[120px] animate-pulse-slow" style={{ animationDelay: '2s' }} />
-      
-      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full" />
-      
+
+      {/* Static Ambient Glows - Warmer tones */}
+      <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] bg-orange-900/15 rounded-full blur-[150px] animate-pulse-slow pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-red-900/10 rounded-full blur-[120px] animate-pulse-slow pointer-events-none" style={{ animationDelay: '2s' }} />
+
+      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full pointer-events-none" />
+
       {/* Vignette */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0c0502_90%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0c0502_90%)] pointer-events-none" />
     </div>
   );
 };

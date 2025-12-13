@@ -51,7 +51,7 @@ export const RevenueCalculator: React.FC = () => {
   };
 
   return (
-    <section id="calculator" className="py-24 px-4 bg-slate-900/30 relative">
+    <section id="calculator" className="py-24 px-4 relative">
        {/* Background glow for this section */}
        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-accent-600/5 blur-[100px] pointer-events-none" />
 

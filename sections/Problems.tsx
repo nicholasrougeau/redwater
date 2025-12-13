@@ -23,7 +23,7 @@ const problems = [
 
 export const Problems: React.FC = () => {
   return (
-    <section id="problems" className="py-24 px-4 bg-slate-950/50">
+    <section id="problems" className="py-24 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4">

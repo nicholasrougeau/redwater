@@ -38,7 +38,7 @@ const resultsData = [
 
 export const Results: React.FC = () => {
   return (
-    <section id="results" className="py-24 px-4 border-y border-slate-900 bg-slate-950/30">
+    <section id="results" className="py-24 px-4">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-semibold text-white mb-6">
