@@ -29,8 +29,8 @@ const App: React.FC = () => {
         <div className="container mx-auto px-4">
           <p>&copy; {new Date().getFullYear()} Redwater Revenue. Growth systems for service businesses.</p>
           <p className="mt-2 text-slate-700">
-            <a href="mailto:contact@redwaterrev.com" className="hover:text-accent-500 transition-colors">
-              contact@redwaterrev.com
+            <a href="mailto:nick@redwaterrev.com" className="hover:text-accent-500 transition-colors">
+              nick@redwaterrev.com
             </a>
           </p>
         </div>

@@ -114,4 +114,4 @@ Private - All rights reserved
 
 ## Contact
 
-For inquiries: [contact@redwaterrev.com](mailto:contact@redwaterrev.com)
+For inquiries: [nick@redwaterrev.com](mailto:nick@redwaterrev.com)

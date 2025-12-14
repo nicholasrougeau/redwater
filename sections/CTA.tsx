@@ -4,16 +4,8 @@ import { Button } from '../components/Button';
 
 export const CTA: React.FC = () => {
   const handleBookingClick = () => {
-    // Opens email client for contact
-    window.location.href = 'mailto:contact@redwaterrev.com?subject=Diagnostic Call Request';
-  };
-
-  const handlePricingClick = () => {
-    // Scroll to calculator
-    const calculatorEl = document.getElementById('calculator');
-    if (calculatorEl) {
-      calculatorEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Opens booking calendar
+    window.location.href = 'https://book.redwaterrev.com/book';
   };
 
   return (
@@ -36,12 +28,9 @@ export const CTA: React.FC = () => {
             You don't need another agency promising the moon. You need an infrastructure audit to see exactly where your revenue is leaking.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <Button onClick={handleBookingClick} className="w-full sm:w-auto text-lg px-8 py-4">
               Book a Diagnostic Call
-            </Button>
-            <Button onClick={handlePricingClick} variant="secondary" className="w-full sm:w-auto text-lg px-8 py-4">
-              View Pricing Models
             </Button>
           </div>
 
