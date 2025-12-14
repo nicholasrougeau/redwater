@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-5xl md:text-8xl font-bold tracking-tighter text-white mb-8 leading-[1]"
         >
-          <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-300">
+          <span className="text-white">
             15 Booked Leads
           </span>
           <br />
@@ -41,7 +41,7 @@ export const Hero: React.FC = () => {
              in 90 Days
           </span>
           <br />
-          <span className="text-4xl md:text-6xl text-slate-500 font-medium">
+          <span className="text-4xl md:text-6xl text-slate-300 font-medium">
             or you don't pay.
           </span>
         </motion.h1>
