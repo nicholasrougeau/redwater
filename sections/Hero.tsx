@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
           className="flex flex-col sm:flex-row gap-5 justify-center items-center"
         >
           <Button icon onClick={scrollToCalculator} className="w-full sm:w-auto text-lg px-8">Calculate Lost Revenue</Button>
-          <Button variant="ghost" className="w-full sm:w-auto">View Case Studies</Button>
+          <Button variant="ghost" className="w-full sm:w-auto" onClick={() => window.location.href = '/services'}>View Services</Button>
         </motion.div>
       </div>
 

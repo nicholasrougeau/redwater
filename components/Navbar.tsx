@@ -1,20 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from './Button';
 
 export const Navbar: React.FC = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!isHomePage) {
+      // Navigate to home first, then scroll
+      window.location.href = `/#${targetId}`;
+    } else {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
   const handleAuditClick = () => {
-    const calculatorEl = document.getElementById('calculator');
-    if (calculatorEl) {
-      calculatorEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (!isHomePage) {
+      window.location.href = '/#calculator';
+    } else {
+      const calculatorEl = document.getElementById('calculator');
+      if (calculatorEl) {
+        calculatorEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -25,12 +38,12 @@ export const Navbar: React.FC = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 border-b border-white/5 bg-slate-950/80 backdrop-blur-md"
     >
-      <div className="flex items-center gap-2">
+      <Link to="/" className="flex items-center gap-2">
         <div className="w-8 h-8 rounded bg-gradient-to-tr from-white to-slate-500 flex items-center justify-center">
           <span className="text-slate-950 font-bold text-sm">R</span>
         </div>
         <span className="text-lg font-medium tracking-tight text-white">Redwater</span>
-      </div>
+      </Link>
 
       <div className="hidden md:flex items-center gap-8">
         <a
@@ -40,13 +53,12 @@ export const Navbar: React.FC = () => {
         >
           Problems
         </a>
-        <a
-          href="#solutions"
-          onClick={(e) => handleNavClick(e, 'solutions')}
+        <Link
+          to="/services"
           className="text-sm text-slate-400 hover:text-white transition-colors cursor-pointer"
         >
-          Solutions
-        </a>
+          Services
+        </Link>
         <a
           href="#results"
           onClick={(e) => handleNavClick(e, 'results')}
