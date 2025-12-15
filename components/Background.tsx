@@ -173,7 +173,7 @@ export const Background: React.FC = () => {
 
       {/* Dynamic Mouse Glow - Separate layer with higher z-index */}
       <motion.div
-        className="fixed w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 bg-accent-600/15 rounded-full blur-[140px] pointer-events-none z-[5]"
+        className="fixed w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 bg-accent-600/50 rounded-full blur-[100px] pointer-events-none z-[5]"
         animate={{
           left: mousePos.x,
           top: mousePos.y,

@@ -12,8 +12,8 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 pt-20 overflow-hidden">
       {/* Dramatic Background Elements specific to Hero */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-600/20 rounded-full blur-[120px] animate-pulse-slow pointer-events-none" />
-      
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent-600/20 rounded-full blur-[120px] animate-pulse-slow pointer-events-none z-0" />
+
       <div className="container mx-auto max-w-5xl text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
