@@ -1,8 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, Bot, Mail, Monitor, FileText, PenTool } from 'lucide-react';
+import { Search, Bot, Mail, Monitor, FileText, PenTool, AlertCircle } from 'lucide-react';
 import { Card } from '../components/Card';
 import { Button } from '../components/Button';
+import { RevenueCalculatorForm } from '../sections/RevenueCalculatorForm';
 
 interface Service {
   id: string;
@@ -136,12 +137,7 @@ export const ServicesPage: React.FC = () => {
                 <div className="mt-auto pt-6 border-t border-slate-800/50">
                   <Button
                     onClick={() => {
-                      const ctaEl = document.getElementById('cta');
-                      if (ctaEl) {
-                        ctaEl.scrollIntoView({ behavior: 'smooth' });
-                      } else {
-                        window.location.href = '/#cta';
-                      }
+                      window.location.href = 'https://book.redwaterrev.com/book';
                     }}
                     className="w-full"
                   >
@@ -157,18 +153,44 @@ export const ServicesPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          className="mt-20 text-center"
+          className="mt-24 border-t border-slate-800/50 pt-20"
         >
-          <p className="text-slate-500 mb-6">
-            Ready to scale your service business?
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Calculate Your Revenue Loss
+            </h2>
+            <p className="text-slate-400 text-lg">
+              See exactly how much money slow response times are costing your business every month.
+            </p>
+          </div>
+
+          <RevenueCalculatorForm />
+
+          <p className="text-slate-500 text-sm italic text-center mt-8 max-w-2xl mx-auto">
+            *Estimate based on industry averages and a conservative 50% close rate assumption.
+            Results are not a guarantee for your specific business performance.
           </p>
-          <Button
-            onClick={() => window.location.href = '/#calculator'}
-            variant="secondary"
-            className="mx-auto"
-          >
-            Calculate Your Revenue Loss
-          </Button>
+
+          <div className="mt-12 p-6 bg-slate-900/50 border border-slate-800 rounded-xl max-w-2xl mx-auto">
+            <h3 className="text-white font-medium mb-4 flex items-center gap-2">
+              <AlertCircle className="w-5 h-5 text-accent-500" />
+              Why This Matters
+            </h3>
+            <ul className="space-y-3 text-sm text-slate-400">
+              <li className="flex gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent-500 mt-2 flex-shrink-0" />
+                <span>Responding to leads within 5 minutes increases conversion by 400% compared to waiting 10+ minutes.</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent-500 mt-2 flex-shrink-0" />
+                <span>80% of sales require 5+ follow-up attempts, but most businesses stop after 2.</span>
+              </li>
+              <li className="flex gap-3">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent-500 mt-2 flex-shrink-0" />
+                <span>Automated systems ensure no lead falls through the cracks, maximizing your marketing ROI.</span>
+              </li>
+            </ul>
+          </div>
         </motion.div>
       </div>
     </div>

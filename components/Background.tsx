@@ -1,8 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 export const Background: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
+  const [mousePos, setMousePos] = useState({ x: typeof window !== 'undefined' ? window.innerWidth / 2 : 0, y: typeof window !== 'undefined' ? window.innerHeight / 2 : 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -20,14 +21,7 @@ export const Background: React.FC = () => {
     const handleMouseMove = (e: MouseEvent) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
-
-      // Move the large glow div
-      if (glowRef.current) {
-        glowRef.current.animate({
-          left: `${e.clientX}px`,
-          top: `${e.clientY}px`
-        }, { duration: 2000, fill: "forwards" });
-      }
+      setMousePos({ x: e.clientX, y: e.clientY });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -178,10 +172,18 @@ export const Background: React.FC = () => {
       </div>
 
       {/* Dynamic Mouse Glow - Separate layer with higher z-index */}
-      <div
-        ref={glowRef}
+      <motion.div
         className="fixed w-[1000px] h-[1000px] -translate-x-1/2 -translate-y-1/2 bg-accent-600/15 rounded-full blur-[140px] pointer-events-none z-[5]"
-        style={{ top: '50%', left: '50%' }}
+        animate={{
+          left: mousePos.x,
+          top: mousePos.y,
+        }}
+        transition={{
+          type: "spring",
+          damping: 30,
+          stiffness: 200,
+          mass: 0.5,
+        }}
       />
     </>
   );
