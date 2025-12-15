@@ -23,7 +23,7 @@ export const Hero: React.FC = () => {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-900/80 border border-accent-500/30 text-accent-400 text-xs font-semibold tracking-wider uppercase backdrop-blur-md shadow-[0_0_15px_rgba(234,88,12,0.2)]">
             <Flame className="w-3 h-3 fill-accent-500 text-accent-500" />
-            <span>SEO &bull; AI Automation &bull; Marketing Systems</span>
+            <span>Web Design &bull; Marketing &bull; Automation</span>
           </div>
         </motion.div>
         
