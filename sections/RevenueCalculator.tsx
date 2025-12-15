@@ -23,7 +23,7 @@ export const RevenueCalculator: React.FC = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const calculateAndSend = (e: React.FormEvent) => {
+  const calculateAndSend = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
@@ -43,11 +43,45 @@ export const RevenueCalculator: React.FC = () => {
 
     setCalculationResult(monthlyLoss);
 
-    // Simulate brief "calculating" delay for UX
-    setTimeout(() => {
+    // Prepare webhook payload
+    const payload = {
+      name: formData.name,
+      businessName: formData.businessName,
+      email: formData.email,
+      phone: formData.phone || '',
+      avgJobValue: avgJobValue,
+      leadsPerWeek: leadsPerWeek,
+      percentMissed: percentMissed,
+      calculatedLoss: monthlyLoss,
+      timestamp: new Date().toISOString(),
+      source: 'homepage-calculator',
+    };
+
+    // Submit to GHL webhook
+    try {
+      const response = await fetch(
+        'https://services.leadconnectorhq.com/hooks/11am6QHObrEmx0qnQg7g/webhook-trigger/cbc1a239-54a7-4c7f-8594-b0165308238f',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!response.ok) {
+        console.error('Webhook submission failed:', response.status);
+      }
+
       setIsSuccess(true);
+    } catch (error) {
+      console.error('Webhook error:', error);
+      // Still show result even if webhook fails
+      setIsSuccess(true);
+    } finally {
       setIsSubmitting(false);
-    }, 800);
+    }
   };
 
   return (
