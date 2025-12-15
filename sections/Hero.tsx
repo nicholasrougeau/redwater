@@ -37,7 +37,7 @@ export const Hero: React.FC = () => {
             15 Booked Leads
           </span>
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-400 via-accent-500 to-accent-600 relative">
+          <span className="text-accent-500 relative inline-block">
              in 90 Days
           </span>
           <br />
