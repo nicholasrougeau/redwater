@@ -39,6 +39,42 @@ const SERVICE_ICON_MAP: Record<string, React.ReactNode> = {
   'lead-follow-up': <Users className="w-5 h-5" />,
 };
 
+// Service demo images mapping
+const SERVICE_IMAGE_MAP: Record<string, { src: string; alt: string }> = {
+  'functional-website': {
+    src: '/images/2_website.png',
+    alt: 'Professional service business website mockup showing desktop and mobile responsive design with clear call-to-action buttons'
+  },
+  'missed-call-text-back': {
+    src: '/images/3_Missed_call.png',
+    alt: 'iPhone showing automatic text message response to a missed call - instant lead engagement'
+  },
+  'all-in-one-inbox': {
+    src: '/images/4_all_in_one.png',
+    alt: 'Unified inbox dashboard showing Facebook, Instagram, SMS and email messages in one place'
+  },
+  'business-phone': {
+    src: '/images/5_biz_phone.png',
+    alt: 'Side-by-side comparison of personal phone showing Mom calling versus business phone showing New Lead'
+  },
+  'local-seo': {
+    src: '/images/6_local_seo.png',
+    alt: 'Google Maps search results showing business ranking in the top 3 local pack with 5-star reviews'
+  },
+  'review-funnel': {
+    src: '/images/7_review_automation.png',
+    alt: 'Automated review request text message with direct Google review link and 5-star rating prompt'
+  },
+  'one-click-marketing': {
+    src: '/images/8_one_click_campaign.png',
+    alt: 'Simple marketing dashboard with one-click campaign buttons for Spring Cleanup, Refer a Friend, and Winter Prep'
+  },
+  'lead-follow-up': {
+    src: '/images/9_lead_nurture.png',
+    alt: 'Lead follow-up automation timeline showing instant text, email at 30 minutes, voicemail at 2 hours, then appointment booked'
+  },
+};
+
 // SEO Head component for dynamic meta tags
 const SEOHead = ({
   title,
@@ -392,18 +428,17 @@ const ServicePage = ({ serviceId, onBookClick }: { serviceId: string; onBookClic
               ))}
             </div>
             <div className="bg-white p-6 rounded-3xl shadow-2xl border border-slate-100">
-              <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">See a short demo below</h2>
-              <div className="aspect-video bg-slate-900 rounded-2xl flex items-center justify-center relative group cursor-pointer overflow-hidden">
+              <h2 className="text-2xl font-bold text-slate-900 mb-8 text-center">See how it works</h2>
+              <div className="rounded-2xl overflow-hidden">
                 <img
-                  src={`https://picsum.photos/seed/${data.id}/800/450`}
-                  alt={`${data.title} service demonstration`}
+                  src={SERVICE_IMAGE_MAP[data.id]?.src || `/images/2_website.png`}
+                  alt={SERVICE_IMAGE_MAP[data.id]?.alt || `${data.title} service demonstration`}
                   loading="lazy"
                   decoding="async"
-                  className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700"
+                  width="800"
+                  height="450"
+                  className="w-full h-auto object-cover"
                 />
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-md border border-white/30 rounded-full flex items-center justify-center z-10 group-hover:scale-110 transition-transform">
-                  <Play className="w-8 h-8 text-white fill-white" />
-                </div>
               </div>
             </div>
           </div>
@@ -523,10 +558,12 @@ const HomePage = ({ onBookClick }: { onBookClick: () => void }) => {
             <MotionWrapper delay={0.5} className="relative">
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
                 <img
-                  src="https://picsum.photos/seed/truck/800/600"
-                  alt="Home Service Business"
+                  src="/images/1_Homepage.png"
+                  alt="Home service contractor checking phone with work truck in background - capturing leads on the job site"
                   loading="lazy"
                   decoding="async"
+                  width="800"
+                  height="600"
                   className="w-full h-auto object-cover aspect-[4/3]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent flex flex-col justify-end p-8">
