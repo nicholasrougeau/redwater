@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redwater Revenue</title>
+    <script type="text/javascript">
+      // Single Page Apps for GitHub Pages
+      // MIT License
+      // https://github.com/rafgraph/spa-github-pages
+      // This script stores the current path in sessionStorage and redirects
+      // to the root, where the SPA picks it up and navigates to the right route
+
+      // CUSTOM DOMAIN (redwaterrev.com) - use 0
+      var pathSegmentsToKeep = 0;
+
+      var l = window.location;
+      // Store the path for the SPA to pick up
+      sessionStorage.redirect = l.pathname + l.search + l.hash;
+      // Redirect to root
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/'
+      );
+    </script>
+  </head>
+  <body>
+    <!-- This file must be at least 512 bytes for IE compatibility -->
+    <!-- Padding to ensure minimum file size -->
+  </body>
+</html>
