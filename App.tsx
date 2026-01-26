@@ -195,6 +195,7 @@ const RevenueLeakCalculator = ({ onFixClick }: { onFixClick: () => void }) => {
 const LeadForm = ({ source = 'Website Foundations Form', className = '' }: { source?: string, className?: string }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({ company: '', name: '', phone: '', email: '' });
+  const [smsConsent, setSmsConsent] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -212,6 +213,15 @@ const LeadForm = ({ source = 'Website Foundations Form', className = '' }: { sou
       email: formData.email.trim().toLowerCase().slice(0, 254),
     };
 
+    // Store SMS consent locally for compliance tracking
+    if (smsConsent) {
+      localStorage.setItem('smsConsent', JSON.stringify({
+        consented: true,
+        phone: sanitizedData.phone,
+        timestamp: new Date().toISOString(),
+      }));
+    }
+
     try {
       await fetch(WEBHOOK_URL, {
         method: 'POST',
@@ -219,6 +229,7 @@ const LeadForm = ({ source = 'Website Foundations Form', className = '' }: { sou
         body: JSON.stringify({
           ...sanitizedData,
           source,
+          smsConsent,
           timestamp: new Date().toISOString(),
         })
       });
@@ -267,6 +278,18 @@ const LeadForm = ({ source = 'Website Foundations Form', className = '' }: { sou
           maxLength={254}
           className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-red-500 outline-none"
         />
+      </div>
+      <div className="flex items-start gap-3">
+        <input
+          type="checkbox"
+          id="smsConsent"
+          checked={smsConsent}
+          onChange={(e) => setSmsConsent(e.target.checked)}
+          className="mt-1 w-4 h-4 text-red-600 bg-slate-50 border-slate-300 rounded focus:ring-red-500 focus:ring-2 cursor-pointer"
+        />
+        <label htmlFor="smsConsent" className="text-xs text-slate-500 leading-relaxed cursor-pointer">
+          I agree to receive SMS text messages from Redwater Revenue. Message frequency varies. Message and data rates may apply. Reply STOP to opt out. View our <a href="/privacy" className="text-red-600 hover:underline">Privacy Policy</a>.
+        </label>
       </div>
       <button
         disabled={isSubmitting}
