@@ -821,6 +821,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage onBookClick={openModal} />} />
           <Route path="/services/:serviceId" element={<ServicePageWrapper onBookClick={openModal} />} />
+          <Route path="/precall" element={<PreCallPage />} />
         </Routes>
 
         <section id="cta" className="py-24 bg-slate-900 relative overflow-hidden">
@@ -881,6 +882,112 @@ const ServicePageWrapper = ({ onBookClick }: { onBookClick: () => void }) => {
   const location = useLocation();
   const serviceId = location.pathname.split('/').pop() || '';
   return <ServicePage serviceId={serviceId} onBookClick={onBookClick} />;
+};
+
+// Pre-call video page - noindex/nofollow for post-booking redirect
+const PreCallPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <>
+      <Helmet>
+        <title>Welcome to Redwater Revenue</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
+      </Helmet>
+
+      <div className="min-h-screen bg-slate-900 pt-28 pb-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <MotionWrapper>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-sm font-bold uppercase tracking-wider mb-6">
+                <Play className="w-4 h-4" /> You're In
+              </div>
+            </MotionWrapper>
+            <MotionWrapper delay={0.1}>
+              <h1 className="text-4xl lg:text-5xl font-extrabold text-white mb-4">
+                Before We Talk, <span className="text-red-500">Watch This.</span>
+              </h1>
+            </MotionWrapper>
+            <MotionWrapper delay={0.2}>
+              <p className="text-xl text-slate-400 max-w-2xl mx-auto">
+                This 5-minute video shows you exactly how we help service businesses stop bleeding leads. No fluff, just the foundations.
+              </p>
+            </MotionWrapper>
+          </div>
+
+          {/* Video Embed */}
+          <MotionWrapper delay={0.3}>
+            <div className="relative bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-slate-700 mb-12">
+              <div className="aspect-video">
+                <iframe
+                  src="https://www.loom.com/embed/aeac6a9e25c34660b0cc54808509e136?hide_owner=true&hide_share=true&hide_title=true&hideEmbedTopBar=true"
+                  frameBorder="0"
+                  allowFullScreen
+                  className="w-full h-full"
+                  title="Pre-call video from Redwater Revenue"
+                ></iframe>
+              </div>
+            </div>
+          </MotionWrapper>
+
+          {/* Next Steps Card */}
+          <MotionWrapper delay={0.4}>
+            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-2xl">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-red-600 rounded-2xl flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <h2 className="text-2xl font-bold text-slate-900">Your Next Step</h2>
+              </div>
+
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-red-600 font-bold text-sm shrink-0 mt-0.5">1</div>
+                  <div>
+                    <p className="font-bold text-slate-900 text-lg">Check your inbox</p>
+                    <p className="text-slate-600">We just sent you a calendar link. Look for an email from Redwater Revenue.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-red-600 font-bold text-sm shrink-0 mt-0.5">2</div>
+                  <div>
+                    <p className="font-bold text-slate-900 text-lg">Pick a time that works</p>
+                    <p className="text-slate-600">Click the link, choose a slot, and add it to your calendar so you don't forget.</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-red-600 font-bold text-sm shrink-0 mt-0.5">3</div>
+                  <div>
+                    <p className="font-bold text-slate-900 text-lg">Show up ready to talk shop</p>
+                    <p className="text-slate-600">We'll walk through your current setup and show you exactly how to plug the leaks.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-10 pt-8 border-t border-slate-100">
+                <p className="text-slate-500 text-center text-sm">
+                  Questions before the call? Reply to the email or text us directly. Talk soon.
+                </p>
+              </div>
+            </div>
+          </MotionWrapper>
+
+          {/* Brand footer */}
+          <div className="text-center mt-12">
+            <p className="text-slate-500 text-sm font-bold uppercase tracking-widest">
+              REDWATER <span className="text-red-500">REVENUE</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
 export default App;
