@@ -824,6 +824,7 @@ const App: React.FC = () => {
           <Route path="/precall" element={<PreCallPage />} />
           <Route path="/privacy" element={<PrivacyPage />} />
           <Route path="/terms" element={<TermsPage />} />
+          <Route path="/book" element={<BookPage />} />
         </Routes>
 
         <section id="cta" className="py-24 bg-slate-900 relative overflow-hidden">
@@ -884,6 +885,72 @@ const ServicePageWrapper = ({ onBookClick }: { onBookClick: () => void }) => {
   const location = useLocation();
   const serviceId = location.pathname.split('/').pop() || '';
   return <ServicePage serviceId={serviceId} onBookClick={onBookClick} />;
+};
+
+// Dedicated booking page - noindex/nofollow, distraction-free
+const BookPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <>
+      <Helmet>
+        <title>Book a Call | Redwater Revenue</title>
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="googlebot" content="noindex, nofollow" />
+      </Helmet>
+
+      <div className="min-h-screen bg-slate-900 pt-28 pb-16 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl -mr-48 -mt-48"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-600/5 rounded-full blur-3xl -ml-48 -mb-48"></div>
+
+        <div className="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <MotionWrapper>
+            <div className="text-center mb-10">
+              <h1 className="text-4xl lg:text-5xl font-extrabold text-white mb-4">
+                Let's Fix Your <span className="text-red-500">Lead Leaks</span>
+              </h1>
+              <p className="text-xl text-slate-400">
+                15 minutes. No pitch. Just a straight answer on whether we can help.
+              </p>
+            </div>
+          </MotionWrapper>
+
+          <MotionWrapper delay={0.1}>
+            <div className="bg-white rounded-3xl p-8 lg:p-10 shadow-2xl">
+              <LeadForm source="Book Page" />
+            </div>
+          </MotionWrapper>
+
+          <MotionWrapper delay={0.2}>
+            <div className="mt-10 grid grid-cols-3 gap-6 text-center">
+              <div>
+                <p className="text-3xl font-black text-red-500 mb-1">10</p>
+                <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Day Setup</p>
+              </div>
+              <div>
+                <p className="text-3xl font-black text-red-500 mb-1">0</p>
+                <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Long Contracts</p>
+              </div>
+              <div>
+                <p className="text-3xl font-black text-red-500 mb-1">4</p>
+                <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">Core Systems</p>
+              </div>
+            </div>
+          </MotionWrapper>
+
+          <MotionWrapper delay={0.3}>
+            <p className="mt-10 text-center text-slate-500 text-sm">
+              Website + Missed Call Text Back + Reviews + Lead Follow-Up.<br />
+              Everything you need. Nothing you don't.
+            </p>
+          </MotionWrapper>
+        </div>
+      </div>
+    </>
+  );
 };
 
 // Privacy Policy page - noindex/nofollow for compliance
