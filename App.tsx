@@ -1074,9 +1074,29 @@ const PrivacyPage = () => {
               </section>
             </MotionWrapper>
 
+            <MotionWrapper delay={0.43}>
+              <section className="mb-12">
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">8. Cookies &amp; Tracking Technologies</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">
+                  Our website uses cookies and similar tracking technologies to improve your browsing experience and analyze site traffic. The types of cookies we use include:
+                </p>
+                <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
+                  <li><strong>Essential Cookies:</strong> Necessary for the website to function properly. These cannot be disabled.</li>
+                  <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our site (e.g., pages visited, time on site). We use this data in aggregate form only.</li>
+                  <li><strong>Session Storage:</strong> We use browser session storage to manage page navigation and improve your experience. This data is cleared when you close your browser.</li>
+                </ul>
+                <p className="text-slate-600 leading-relaxed mb-4">
+                  We do not use cookies to serve third-party advertising or to track you across other websites for marketing purposes.
+                </p>
+                <p className="text-slate-600 leading-relaxed">
+                  You can control cookie settings through your browser preferences. Disabling certain cookies may affect the functionality of our website. For more information on managing cookies, visit your browser&apos;s help documentation.
+                </p>
+              </section>
+            </MotionWrapper>
+
             <MotionWrapper delay={0.45}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">8. Your Rights and Choices</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">9. Your Rights and Choices</h2>
                 <p className="text-slate-600 leading-relaxed mb-4">You have the right to:</p>
                 <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
                   <li>Request access to the personal information we hold about you</li>
@@ -1093,7 +1113,7 @@ const PrivacyPage = () => {
 
             <MotionWrapper delay={0.5}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">9. Data Retention</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">10. Data Retention</h2>
                 <p className="text-slate-600 leading-relaxed">
                   We retain your personal information for as long as necessary to provide our services, comply with legal obligations, resolve disputes, and enforce our agreements. When information is no longer needed, we securely delete or anonymize it.
                 </p>
@@ -1102,7 +1122,7 @@ const PrivacyPage = () => {
 
             <MotionWrapper delay={0.55}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">10. Changes to This Policy</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">11. Changes to This Policy</h2>
                 <p className="text-slate-600 leading-relaxed">
                   We may update this Privacy Policy from time to time. When we do, we will revise the &ldquo;Effective Date&rdquo; at the top of this page. We encourage you to review this policy periodically. Your continued use of our services after any changes constitutes your acceptance of the updated policy.
                 </p>
@@ -1111,7 +1131,7 @@ const PrivacyPage = () => {
 
             <MotionWrapper delay={0.6}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">11. Contact Us</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">12. Contact Us</h2>
                 <p className="text-slate-600 leading-relaxed">
                   If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:<br /><br />
                   <strong>Red Water LLC</strong><br />
