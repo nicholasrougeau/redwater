@@ -971,166 +971,158 @@ const PrivacyPage = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <MotionWrapper>
             <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">Privacy Policy</h1>
-            <p className="text-slate-500 mb-12">Last Updated: March 6, 2026</p>
+            <p className="text-slate-500 mb-2">Effective Date: March 7, 2026</p>
+            <p className="text-slate-500 mb-12">Business: Red Water LLC</p>
+          </MotionWrapper>
+
+          <MotionWrapper delay={0.05}>
+            <p className="text-slate-600 leading-relaxed mb-12">
+              This Privacy Policy describes how Red Water LLC (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, and protects your personal information when you visit or interact with our website and booking platform at <a href="https://book.redwaterrev.com" className="text-red-600 hover:underline">book.redwaterrev.com</a>.
+            </p>
           </MotionWrapper>
 
           <div className="prose prose-slate max-w-none">
             <MotionWrapper delay={0.1}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">1. Introduction</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">
-                  Red Water LLC ("Redwater Revenue," "we," "us," or "our") respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at redwaterrev.com or use our services.
-                </p>
-                <p className="text-slate-600 leading-relaxed">
-                  <strong>Business Contact Information:</strong><br />
-                  Red Water LLC<br />
-                  Owners: Nick Rougeau and Jack Rougeau<br />
-                  Email: nick@redwaterrev.com
-                </p>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">1. Information We Collect</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">We may collect the following types of personal information:</p>
+                <ul className="list-disc pl-6 text-slate-600 space-y-2">
+                  <li><strong>Contact Information:</strong> name, email address, phone number, and physical address</li>
+                  <li><strong>Service Information:</strong> details about the services you are requesting or have received</li>
+                  <li><strong>Communications:</strong> messages, inquiries, and service requests you submit to us</li>
+                  <li><strong>Technical Data:</strong> IP address, browser type, and device information collected automatically when you visit our site</li>
+                </ul>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.15}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">2. Information We Collect</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">We may collect the following types of information:</p>
-                <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                  <li><strong>Personal Information:</strong> Name, email address, phone number, company name, and other contact details you provide through our forms.</li>
-                  <li><strong>Business Information:</strong> Information about your business, services, and marketing needs.</li>
-                  <li><strong>Usage Data:</strong> Information about how you interact with our website, including IP address, browser type, pages visited, and time spent on site.</li>
-                  <li><strong>Communication Records:</strong> Records of calls, texts, and emails exchanged with our team.</li>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">2. How We Use Your Information</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">We use the information we collect to:</p>
+                <ul className="list-disc pl-6 text-slate-600 space-y-2">
+                  <li>Schedule and confirm service appointments and send appointment reminders</li>
+                  <li>Respond to service inquiries and provide customer support</li>
+                  <li>Send transactional notifications related to your service requests</li>
+                  <li>Send promotional messages about seasonal specials and discounts, only to users who have separately consented</li>
+                  <li>Improve our website and services</li>
+                  <li>Comply with legal obligations</li>
                 </ul>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.2}>
               <section className="mb-12 bg-red-50 border border-red-100 rounded-2xl p-8">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">3. SMS/Text Messaging Terms</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">3. SMS / Text Messaging</h2>
                 <p className="text-slate-600 leading-relaxed mb-4">
-                  By providing your phone number and opting in to receive SMS messages from Redwater Revenue, you agree to the following:
+                  By opting into our SMS messaging program, you agree to receive text messages from Red Water LLC at the phone number you provided. The following terms apply:
                 </p>
                 <ul className="list-disc pl-6 text-slate-600 space-y-3 mb-6">
-                  <li><strong>Message Types:</strong> You may receive appointment reminders, service updates, promotional offers, and other marketing communications via SMS.</li>
-                  <li><strong>Message Frequency:</strong> Message frequency varies based on your interactions with our services. You may receive up to 10 messages per month.</li>
-                  <li><strong>Opt-Out:</strong> You can opt out at any time by replying <strong>STOP</strong> to any message. You will receive a confirmation message and no further texts unless you opt back in.</li>
-                  <li><strong>Help:</strong> Reply <strong>HELP</strong> for assistance or contact nick@redwaterrev.com.</li>
-                  <li><strong>Costs:</strong> Message and data rates may apply. Check with your mobile carrier for details.</li>
-                  <li><strong>Carriers:</strong> Carriers are not liable for delayed or undelivered messages.</li>
+                  <li><strong>Message Types &amp; Frequency:</strong> We send appointment confirmation reminders, responses to service inquiries, and &mdash; for users who provide separate marketing consent &mdash; occasional promotional messages about seasonal specials and discounts. Message frequency varies. You may receive up to 10 messages per month.</li>
+                  <li><strong>Non-Sharing of SMS Data:</strong> No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. Information sharing to subcontractors in support services, such as customer service, is permitted. All other use case categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.</li>
+                  <li><strong>Opt-Out:</strong> You can cancel SMS messages at any time by replying <strong>STOP</strong> to any message. You will receive a confirmation that you have been unsubscribed. After opting out, you will no longer receive text messages from us unless you opt in again.</li>
+                  <li><strong>Help:</strong> Reply <strong>HELP</strong> for assistance or contact us at jack@redwaterrev.com.</li>
+                  <li><strong>Message &amp; Data Rates:</strong> Message and data rates may apply. Check with your mobile carrier for details.</li>
+                  <li><strong>Carrier Disclaimer:</strong> Carriers are not liable for delayed or undelivered messages.</li>
+                  <li><strong>Consent Not Required:</strong> Consent to receive marketing text messages is not required as a condition of purchasing any goods or services from us.</li>
+                  <li><strong>Age Requirement:</strong> By opting into our SMS services, you represent that you are at least 18 years of age.</li>
                 </ul>
-                <p className="text-slate-600 leading-relaxed mb-4">
-                  <strong>Consent is not a condition of purchase.</strong> You are not required to consent to SMS messaging to use our services or make a purchase.
-                </p>
-                <p className="text-slate-600 leading-relaxed">
-                  We will not share your phone number or SMS opt-in data with third parties for their marketing purposes. Your information may be shared with service providers who assist us in delivering SMS messages, but only for that purpose.
-                </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.25}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">4. How We Use Your Information</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">We use the information we collect to:</p>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">4. Information Sharing and Disclosure</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">
+                  We do not sell, rent, or trade your personal information to third parties for their own marketing purposes. We do not share your information with affiliate marketers or marketing partners for their independent use.
+                </p>
+                <p className="text-slate-600 leading-relaxed mb-4">We may share your information only in the following limited circumstances:</p>
                 <ul className="list-disc pl-6 text-slate-600 space-y-2">
-                  <li>Provide, operate, and maintain our services</li>
-                  <li>Communicate with you about your account, services, or inquiries</li>
-                  <li>Send promotional communications (with your consent)</li>
-                  <li>Improve our website and services</li>
-                  <li>Comply with legal obligations</li>
-                  <li>Protect against fraud and unauthorized activity</li>
+                  <li><strong>Service Providers:</strong> We may share information with vendors who assist us in operating our business (e.g., scheduling software, customer support tools), strictly to perform services on our behalf and subject to confidentiality obligations.</li>
+                  <li><strong>Legal Requirements:</strong> We may disclose information if required by law or in response to valid legal process.</li>
+                  <li><strong>Business Transfer:</strong> In the event of a merger or acquisition, your information may be transferred as part of that transaction.</li>
                 </ul>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.3}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">5. Information Sharing</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">We may share your information with:</p>
-                <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                  <li><strong>Service Providers:</strong> Third-party vendors who assist with our operations (e.g., CRM systems, email marketing, SMS delivery).</li>
-                  <li><strong>Legal Requirements:</strong> When required by law, court order, or governmental authority.</li>
-                  <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets.</li>
-                </ul>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">5. Data Security</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">
+                  We are committed to protecting your personal information. We implement reasonable administrative, technical, and physical safeguards to protect your data against unauthorized access, disclosure, alteration, or destruction. All form submissions on our website are protected using SSL (Secure Socket Layer) encryption.
+                </p>
                 <p className="text-slate-600 leading-relaxed">
-                  We do not sell, rent, or trade your personal information to third parties for their marketing purposes.
+                  No method of transmission over the internet is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee absolute security.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.35}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">6. Data Security</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">6. Children&apos;s Privacy</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure.
+                  Our website and services are not directed to children under the age of 13, and we do not knowingly collect personal information from children under 13. If we become aware that we have inadvertently collected personal information from a child under 13, we will take steps to delete that information promptly. If you believe we may have collected information from a child under 13, please contact us at jack@redwaterrev.com.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.4}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">7. Data Retention</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">7. Age Requirement</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  We retain your personal information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law. When you opt out of SMS messaging, we will retain a record of your opt-out preference to ensure compliance.
+                  By accessing our website or opting into our SMS services, you represent that you are at least 18 years of age. Our services are intended for adults only.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.45}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">8. Your Rights</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">Depending on your location, you may have the right to:</p>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">8. Your Rights and Choices</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">You have the right to:</p>
                 <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                  <li>Access the personal information we hold about you</li>
+                  <li>Request access to the personal information we hold about you</li>
                   <li>Request correction of inaccurate information</li>
-                  <li>Request deletion of your personal information</li>
-                  <li>Opt out of marketing communications</li>
-                  <li>Withdraw consent where applicable</li>
+                  <li>Request deletion of your personal information, subject to legal requirements</li>
+                  <li>Opt out of SMS communications at any time by replying STOP</li>
+                  <li>Opt out of promotional email communications at any time</li>
                 </ul>
                 <p className="text-slate-600 leading-relaxed">
-                  To exercise these rights, contact us at nick@redwaterrev.com.
+                  To exercise any of these rights, contact us at jack@redwaterrev.com.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.5}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">9. Third-Party Links</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">9. Data Retention</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party sites you visit.
+                  We retain your personal information for as long as necessary to provide our services, comply with legal obligations, resolve disputes, and enforce our agreements. When information is no longer needed, we securely delete or anonymize it.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.55}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">10. Children's Privacy</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">10. Changes to This Policy</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children. If you believe we have collected information from a child, please contact us immediately.
+                  We may update this Privacy Policy from time to time. When we do, we will revise the &ldquo;Effective Date&rdquo; at the top of this page. We encourage you to review this policy periodically. Your continued use of our services after any changes constitutes your acceptance of the updated policy.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.6}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">11. Changes to This Policy</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">11. Contact Us</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  We may update this Privacy Policy from time to time. We will notify you of any material changes by posting the new policy on this page and updating the "Last Updated" date. Your continued use of our services after such modifications constitutes acceptance of the updated policy.
-                </p>
-              </section>
-            </MotionWrapper>
-
-            <MotionWrapper delay={0.65}>
-              <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">12. Contact Us</h2>
-                <p className="text-slate-600 leading-relaxed">
-                  If you have questions about this Privacy Policy or our data practices, please contact us at:<br /><br />
+                  If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:<br /><br />
                   <strong>Red Water LLC</strong><br />
-                  Email: nick@redwaterrev.com
+                  108 Alee Rd, Eunice LA 70535<br />
+                  Email: jack@redwaterrev.com
                 </p>
               </section>
             </MotionWrapper>
           </div>
 
-          <MotionWrapper delay={0.7}>
+          <MotionWrapper delay={0.65}>
             <div className="mt-12 pt-8 border-t border-slate-200">
               <Link to="/" className="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition-colors">
                 <ArrowRight className="w-5 h-5 rotate-180" /> Back to Home
@@ -1160,77 +1152,75 @@ const TermsPage = () => {
       <div className="min-h-screen bg-white pt-28 pb-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <MotionWrapper>
-            <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">Terms and Conditions</h1>
-            <p className="text-slate-500 mb-12">Last Updated: March 6, 2026</p>
+            <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-4">Terms &amp; Conditions</h1>
+            <p className="text-slate-500 mb-2">Effective Date: March 7, 2026</p>
+            <p className="text-slate-500 mb-12">Business: Red Water LLC</p>
+          </MotionWrapper>
+
+          <MotionWrapper delay={0.05}>
+            <p className="text-slate-600 leading-relaxed mb-12">
+              These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your use of the services provided by Red Water LLC (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) and your access to our website at <a href="https://book.redwaterrev.com" className="text-red-600 hover:underline">book.redwaterrev.com</a>. By accessing our website or engaging our services, you agree to be bound by these Terms.
+            </p>
           </MotionWrapper>
 
           <div className="prose prose-slate max-w-none">
             <MotionWrapper delay={0.1}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">1. Agreement to Terms</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">
-                  These Terms and Conditions ("Terms") constitute a legally binding agreement between you ("you" or "Client") and Red Water LLC, doing business as Redwater Revenue ("Company," "we," "us," or "our"), concerning your access to and use of the redwaterrev.com website and our services.
-                </p>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">1. Age Restriction</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  By accessing our website or using our services, you agree to be bound by these Terms. If you do not agree with any part of these Terms, you must not use our services.
+                  By using this service, you represent and warrant that you are at least 18 years of age. If you are under 18 years old, you may not use or access our services or opt into our messaging program. We reserve the right to terminate access for any user found to be under 18 years of age.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.15}>
-              <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">2. Services Description</h2>
+              <section className="mb-12 bg-red-50 border border-red-100 rounded-2xl p-8">
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">2. SMS Messaging Program</h2>
                 <p className="text-slate-600 leading-relaxed mb-4">
-                  Redwater Revenue provides digital marketing and business growth services for service-based businesses, including but not limited to:
+                  Red Water LLC operates an SMS messaging program to communicate with customers who have opted in via our booking website. This program is designed to ensure optimal customer support and timely communication regarding your service.
                 </p>
-                <ul className="list-disc pl-6 text-slate-600 space-y-2">
-                  <li>Website design and development</li>
-                  <li>Missed call text-back automation</li>
-                  <li>Review generation and reputation management</li>
-                  <li>Lead follow-up automation</li>
-                  <li>Local SEO optimization</li>
-                  <li>CRM and business phone systems</li>
-                  <li>Marketing campaign management</li>
+                <ul className="list-disc pl-6 text-slate-600 space-y-3">
+                  <li><strong>Message Types:</strong> Service appointment confirmations and reminders; direct responses to service inquiries; marketing promotions, seasonal specials, and discounts (only for users who provide separate marketing consent).</li>
+                  <li><strong>Opt-Out (STOP):</strong> You can cancel the SMS service at any time. Just text &ldquo;STOP&rdquo; to the number from which you received the message. After you send the SMS message &ldquo;STOP&rdquo; to us, we will send you a confirmation that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, sign up as you did originally and we will start sending SMS messages to you again.</li>
+                  <li><strong>Help:</strong> If you are experiencing issues with the messaging program, you can reply with the keyword HELP for more assistance, or contact us directly at jack@redwaterrev.com.</li>
+                  <li><strong>Message Frequency &amp; Rates:</strong> Message and data rates may apply. Message frequency varies based on your interactions with our service.</li>
+                  <li><strong>Carrier Liability:</strong> Carriers are not liable for delayed or undelivered messages.</li>
+                  <li><strong>Consent Not Required for Purchase:</strong> Providing your mobile phone number and consenting to receive text messages is not a condition of purchasing any goods or services from us.</li>
                 </ul>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.2}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">3. Client Obligations</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">As a client, you agree to:</p>
-                <ul className="list-disc pl-6 text-slate-600 space-y-2">
-                  <li>Provide accurate and complete information required for service delivery</li>
-                  <li>Maintain an active and verified Google Business Profile (required for certain services)</li>
-                  <li>Respond to reasonable requests for information, approvals, or feedback in a timely manner</li>
-                  <li>Comply with all applicable laws and regulations, including those governing advertising and marketing communications</li>
-                  <li>Not use our services for any unlawful purpose or in violation of these Terms</li>
-                </ul>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">3. Services Description</h2>
+                <p className="text-slate-600 leading-relaxed">
+                  Red Water LLC provides digital marketing and lead generation services to local service businesses, including but not limited to: appointment booking funnel setup, SMS and email outreach campaigns, and customer acquisition systems. Specific deliverables and timelines are agreed upon in writing between Red Water LLC and the client prior to commencement of services.
+                </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.25}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">4. Payment Terms</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">4. Client Obligations</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">By engaging our services, you agree to:</p>
                 <ul className="list-disc pl-6 text-slate-600 space-y-2">
-                  <li><strong>Billing:</strong> Services are billed on a monthly basis unless otherwise specified in a separate agreement.</li>
-                  <li><strong>Payment Due:</strong> Payment is due upon receipt of invoice or as specified in your service agreement.</li>
-                  <li><strong>Late Payments:</strong> Accounts past due may be subject to service suspension until payment is received.</li>
-                  <li><strong>Refunds:</strong> Refund policies are determined on a case-by-case basis and specified in individual service agreements.</li>
+                  <li>Provide accurate and complete business information required to deliver services</li>
+                  <li>Maintain an active and verified Google Business Profile, as this is a prerequisite for many of our lead generation and booking services</li>
+                  <li>Respond to communications from Red Water LLC in a timely manner to avoid delays</li>
+                  <li>Comply with all applicable laws in connection with your use of our services</li>
+                  <li>Not use our services for any unlawful, deceptive, or fraudulent purpose</li>
                 </ul>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.3}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">5. Cancellation Policy</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">
-                  We believe in earning your business every month. You may cancel your services at any time with written notice via email to nick@redwaterrev.com.
-                </p>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">5. Payment and Cancellation</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">Payment terms are specified in the individual service agreement between Red Water LLC and the client. General terms:</p>
                 <ul className="list-disc pl-6 text-slate-600 space-y-2">
-                  <li>No long-term contracts are required unless otherwise specified</li>
-                  <li>Cancellation takes effect at the end of the current billing period</li>
-                  <li>Upon cancellation, you retain ownership of any content or assets created specifically for your business</li>
+                  <li><strong>No Long-Term Contracts:</strong> We do not require long-term commitments. Services are provided on a month-to-month basis unless otherwise agreed in writing.</li>
+                  <li><strong>Cancellation:</strong> Either party may cancel services with written notice as specified in the service agreement. Fees paid for services already rendered are non-refundable.</li>
+                  <li><strong>Late Payments:</strong> We reserve the right to pause or suspend services for accounts with outstanding balances.</li>
                 </ul>
               </section>
             </MotionWrapper>
@@ -1238,11 +1228,9 @@ const TermsPage = () => {
             <MotionWrapper delay={0.35}>
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 mb-4">6. Intellectual Property</h2>
-                <ul className="list-disc pl-6 text-slate-600 space-y-2">
-                  <li><strong>Our Property:</strong> All proprietary tools, templates, systems, and methodologies used in delivering our services remain the property of Red Water LLC.</li>
-                  <li><strong>Your Content:</strong> You retain ownership of your business content, logos, images, and materials provided to us.</li>
-                  <li><strong>Deliverables:</strong> Upon full payment, you own the custom content, designs, and assets created specifically for your business (excluding our proprietary systems and templates).</li>
-                </ul>
+                <p className="text-slate-600 leading-relaxed">
+                  All content, materials, strategies, and systems developed by Red Water LLC remain the intellectual property of Red Water LLC unless explicitly assigned to the client in a separate written agreement. Clients are granted a limited, non-exclusive license to use deliverables for their own business purposes.
+                </p>
               </section>
             </MotionWrapper>
 
@@ -1250,16 +1238,10 @@ const TermsPage = () => {
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 mb-4">7. Limitation of Liability</h2>
                 <p className="text-slate-600 leading-relaxed mb-4">
-                  TO THE MAXIMUM EXTENT PERMITTED BY LAW:
+                  To the maximum extent permitted by law, Red Water LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, loss of revenue, loss of data, or business interruption, arising out of or in connection with our services or these Terms.
                 </p>
-                <ul className="list-disc pl-6 text-slate-600 space-y-2 mb-4">
-                  <li>Our services are provided "as is" without warranties of any kind, express or implied.</li>
-                  <li>We do not guarantee specific results, rankings, leads, or revenue outcomes.</li>
-                  <li>We are not liable for indirect, incidental, special, consequential, or punitive damages.</li>
-                  <li>Our total liability shall not exceed the amount paid by you for services in the three (3) months preceding the claim.</li>
-                </ul>
                 <p className="text-slate-600 leading-relaxed">
-                  Marketing results depend on many factors outside our control, including market conditions, competition, and your business operations.
+                  Our total cumulative liability to you for any claims arising from or relating to these Terms or our services shall not exceed the total fees paid by you to us in the three (3) months preceding the event giving rise to the claim.
                 </p>
               </section>
             </MotionWrapper>
@@ -1268,79 +1250,64 @@ const TermsPage = () => {
               <section className="mb-12">
                 <h2 className="text-2xl font-bold text-slate-900 mb-4">8. Indemnification</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  You agree to indemnify and hold harmless Red Water LLC, its owners, employees, and agents from any claims, damages, losses, or expenses (including legal fees) arising from your use of our services, violation of these Terms, or infringement of any third-party rights.
+                  You agree to indemnify, defend, and hold harmless Red Water LLC and its owners, employees, and agents from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising out of or in any way connected with your use of our services, your violation of these Terms, or your violation of any third-party rights.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.5}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">9. Third-Party Services</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">9. Privacy Policy</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  Our services may integrate with or rely on third-party platforms (e.g., Google, Facebook, GoHighLevel). We are not responsible for changes, outages, or issues with third-party services. Your use of third-party services is subject to their respective terms and policies.
+                  Your use of the messaging program and our services is also governed by our Privacy Policy. Please review it carefully. <Link to="/privacy" className="text-red-600 hover:underline">View our Privacy Policy here.</Link>
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.55}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">10. Confidentiality</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">10. Dispute Resolution</h2>
+                <p className="text-slate-600 leading-relaxed mb-4">
+                  Any dispute, claim, or controversy arising out of or relating to these Terms or our services shall be resolved by binding arbitration in Eunice, Louisiana, in accordance with the rules of the American Arbitration Association. The arbitration shall be conducted on an individual basis; class arbitrations and class actions are not permitted.
+                </p>
                 <p className="text-slate-600 leading-relaxed">
-                  Both parties agree to keep confidential any proprietary or sensitive business information shared during the course of service delivery. This obligation survives termination of the business relationship.
+                  Notwithstanding the foregoing, either party may seek injunctive or other equitable relief in any court of competent jurisdiction to prevent irreparable harm pending arbitration.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.6}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">11. Dispute Resolution</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">11. Governing Law</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  Any disputes arising from these Terms or our services shall first be addressed through good-faith negotiation. If unresolved, disputes shall be settled through binding arbitration in accordance with the rules of the American Arbitration Association, with proceedings conducted in the state of Louisiana.
+                  These Terms shall be governed by and construed in accordance with the laws of the State of Louisiana, without regard to its conflict of law provisions.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.65}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">12. Governing Law</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">12. Changes to These Terms</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  These Terms shall be governed by and construed in accordance with the laws of the State of Louisiana, United States, without regard to its conflict of law provisions.
+                  We reserve the right to update these Terms at any time. Changes will be effective upon posting to our website with a revised &ldquo;Effective Date.&rdquo; Your continued use of our services after any changes constitutes your acceptance of the updated Terms.
                 </p>
               </section>
             </MotionWrapper>
 
             <MotionWrapper delay={0.7}>
               <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">13. Modifications to Terms</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-4">13. Contact Us</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  We reserve the right to modify these Terms at any time. Changes will be effective upon posting to the website. Your continued use of our services after changes are posted constitutes acceptance of the modified Terms.
-                </p>
-              </section>
-            </MotionWrapper>
-
-            <MotionWrapper delay={0.75}>
-              <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">14. Severability</h2>
-                <p className="text-slate-600 leading-relaxed">
-                  If any provision of these Terms is found to be unenforceable, the remaining provisions will continue in full force and effect.
-                </p>
-              </section>
-            </MotionWrapper>
-
-            <MotionWrapper delay={0.8}>
-              <section className="mb-12">
-                <h2 className="text-2xl font-bold text-slate-900 mb-4">15. Contact Information</h2>
-                <p className="text-slate-600 leading-relaxed">
-                  For questions about these Terms, please contact us at:<br /><br />
+                  If you have any questions about these Terms, please contact us:<br /><br />
                   <strong>Red Water LLC</strong><br />
-                  Owners: Nick Rougeau and Jack Rougeau<br />
-                  Email: nick@redwaterrev.com
+                  108 Alee Rd, Eunice LA 70535<br />
+                  Email: jack@redwaterrev.com
                 </p>
               </section>
             </MotionWrapper>
           </div>
 
-          <MotionWrapper delay={0.85}>
+          <MotionWrapper delay={0.75}>
             <div className="mt-12 pt-8 border-t border-slate-200">
               <Link to="/" className="inline-flex items-center gap-2 text-red-600 font-bold hover:text-red-700 transition-colors">
                 <ArrowRight className="w-5 h-5 rotate-180" /> Back to Home
