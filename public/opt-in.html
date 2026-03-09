@@ -305,16 +305,7 @@
         <p style="font-size: 0.82rem; color: #64748b;">108 Alee Rd, Eunice, LA 70535 &nbsp;&bull;&nbsp; jack@redwaterrev.com</p>
       </div>
 
-      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px 20px; margin-bottom: 24px;">
-        <p style="font-size: 0.78rem; font-weight: 700; color: #475569; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px;">Message Types You May Receive</p>
-        <ul style="list-style: disc; padding-left: 18px; font-size: 0.83rem; color: #475569; line-height: 1.7; margin: 0;">
-          <li>Appointment confirmations and reminders</li>
-          <li>Responses to service inquiries</li>
-          <li>Promotional messages about seasonal specials and discounts (marketing consent only)</li>
-        </ul>
-      </div>
-
-      <form id="opt-in-form">
+<form id="opt-in-form">
         <div class="field">
           <label for="name">Full Name</label>
           <input type="text" id="name" name="name" placeholder="John Smith" autocomplete="name" required />
@@ -333,39 +324,35 @@
         <div class="consent-block">
           <p class="consent-title">SMS Messaging Consent</p>
           <p>
-            By checking the box below, you agree to receive SMS text messages from
+            By opting in below, you agree to receive SMS text messages from
             <strong>Red Water LLC (Redwater Revenue)</strong> at the phone number provided above.
-          </p>
-          <p>
-            <strong>Message frequency varies.</strong> You may receive up to 10 messages per month.
-            Message and data rates may apply.
-          </p>
-          <p>
-            To opt out at any time, reply <strong>STOP</strong> to any message. For help, reply
-            <strong>HELP</strong> or contact us at
-            <a href="mailto:jack@redwaterrev.com">jack@redwaterrev.com</a>.
+            Message and data rates may apply. Reply STOP to opt out at any time. Reply HELP for help.
             Carriers are not liable for delayed or undelivered messages.
+            <strong>Consent is not a condition of purchase.</strong>
+            No mobile information will be shared with third parties or affiliates for marketing or promotional purposes.
           </p>
           <p>
-            <strong>Consent is not a condition of purchase.</strong> You are not required to consent
-            to SMS messaging to use our services or make a purchase.
-          </p>
-          <p>
-            No mobile information will be shared with third parties or affiliates for marketing
-            or promotional purposes.
+            View our <a href="https://redwaterrev.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+            and <a href="https://redwaterrev.com/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>.
           </p>
 
           <hr class="divider" />
 
-          <div class="checkbox-row">
-            <input type="checkbox" id="sms-consent" name="sms-consent" />
-            <label for="sms-consent">
-              I agree to receive SMS text messages from <strong>Red Water LLC (Redwater Revenue)</strong>,
-              including appointment confirmations and reminders, responses to service inquiries, and
-              promotional messages about seasonal specials and discounts (marketing consent only).
+          <div class="checkbox-row" style="margin-bottom: 14px;">
+            <input type="checkbox" id="sms-transactional" name="sms-transactional" />
+            <label for="sms-transactional">
+              I agree to receive <strong>transactional SMS messages</strong> from Red Water LLC (Redwater Revenue),
+              including appointment confirmations, appointment reminders, and responses to service inquiries.
               Message frequency varies. Message and data rates may apply. Reply STOP to opt out.
-              View our <a href="https://redwaterrev.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
-              and <a href="https://redwaterrev.com/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>.
+            </label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="sms-marketing" name="sms-marketing" />
+            <label for="sms-marketing">
+              I agree to receive <strong>promotional SMS messages</strong> from Red Water LLC (Redwater Revenue),
+              including seasonal specials, discounts, and marketing offers.
+              Message frequency varies. Message and data rates may apply. Reply STOP to opt out.
             </label>
           </div>
         </div>
@@ -408,7 +395,7 @@
       var name = document.getElementById('name').value.trim();
       var phone = document.getElementById('phone').value.trim();
       var email = document.getElementById('email').value.trim();
-      var consent = document.getElementById('sms-consent').checked;
+      var consent = document.getElementById('sms-transactional').checked || document.getElementById('sms-marketing').checked;
 
       var emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
       var phoneValid = /[\+\d\s\(\)\-]{10,}/.test(phone);
