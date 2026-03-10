@@ -963,8 +963,6 @@ const PrivacyPage = () => {
     <>
       <Helmet>
         <title>Privacy Policy | Redwater Revenue</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
       </Helmet>
 
       <div className="min-h-screen bg-white pt-28 pb-16">
@@ -977,7 +975,7 @@ const PrivacyPage = () => {
 
           <MotionWrapper delay={0.05}>
             <p className="text-slate-600 leading-relaxed mb-12">
-              This Privacy Policy describes how Red Water LLC (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, and protects your personal information when you visit or interact with our website and booking platform at <a href="https://book.redwaterrev.com" className="text-red-600 hover:underline">book.redwaterrev.com</a>.
+              This Privacy Policy describes how Red Water LLC (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) collects, uses, and protects your personal information when you visit or interact with our website at <a href="https://redwaterrev.com" className="text-red-600 hover:underline">redwaterrev.com</a>.
             </p>
           </MotionWrapper>
 
@@ -1165,8 +1163,6 @@ const TermsPage = () => {
     <>
       <Helmet>
         <title>Terms and Conditions | Redwater Revenue</title>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
       </Helmet>
 
       <div className="min-h-screen bg-white pt-28 pb-16">
@@ -1179,7 +1175,7 @@ const TermsPage = () => {
 
           <MotionWrapper delay={0.05}>
             <p className="text-slate-600 leading-relaxed mb-12">
-              These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your use of the services provided by Red Water LLC (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) and your access to our website at <a href="https://book.redwaterrev.com" className="text-red-600 hover:underline">book.redwaterrev.com</a>. By accessing our website or engaging our services, you agree to be bound by these Terms.
+              These Terms &amp; Conditions (&ldquo;Terms&rdquo;) govern your use of the services provided by Red Water LLC (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) and your access to our website at <a href="https://redwaterrev.com" className="text-red-600 hover:underline">redwaterrev.com</a>. By accessing our website or engaging our services, you agree to be bound by these Terms.
             </p>
           </MotionWrapper>
 
