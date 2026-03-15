@@ -963,6 +963,7 @@ const PrivacyPage = () => {
     <>
       <Helmet>
         <title>Privacy Policy | Redwater Revenue</title>
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
 
       <div className="min-h-screen bg-white pt-28 pb-16">
@@ -1163,6 +1164,7 @@ const TermsPage = () => {
     <>
       <Helmet>
         <title>Terms and Conditions | Redwater Revenue</title>
+        <meta name="robots" content="noindex, follow" />
       </Helmet>
 
       <div className="min-h-screen bg-white pt-28 pb-16">
