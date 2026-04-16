@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Particles } from '../components/Particles';
 import { SpotlightCard } from '../components/SpotlightCard';
+import { LiquidGradient } from '../components/LiquidGradient';
 import { Roadmap } from '../components/Roadmap';
 import { NewsletterSection } from '../components/NewsletterSection';
 import { SEO } from '../lib/seo';
@@ -51,6 +52,7 @@ export const Home = () => {
       />
       {/* Hero */}
       <section className="relative overflow-hidden px-6 py-24 lg:py-32">
+        <LiquidGradient intensity="hero" />
         <Particles />
         <div className="mx-auto max-w-7xl">
           <motion.div
