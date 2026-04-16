@@ -47,8 +47,9 @@ function openBrowser(url) {
   let cmd;
   let args;
   if (platform === 'win32') {
-    cmd = 'cmd';
-    args = ['/c', 'start', '', url];
+    // cmd.exe `start` mangles URLs at the first `&`. rundll32 handles the URL as a single arg.
+    cmd = 'rundll32';
+    args = ['url.dll,FileProtocolHandler', url];
   } else if (platform === 'darwin') {
     cmd = 'open';
     args = [url];
