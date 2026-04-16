@@ -32,6 +32,12 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          VITE_CONVERTKIT_FORM_ID: ${{ secrets.VITE_CONVERTKIT_FORM_ID }}
+          VITE_SCHEDULER_API_URL: ${{ secrets.VITE_SCHEDULER_API_URL }}
+          VITE_PLAUSIBLE_DOMAIN: ${{ secrets.VITE_PLAUSIBLE_DOMAIN }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

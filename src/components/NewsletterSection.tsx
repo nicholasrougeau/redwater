@@ -2,15 +2,27 @@ import { useState, type FormEvent } from 'react';
 import { motion } from 'motion/react';
 import { Mail, ArrowRight } from 'lucide-react';
 
+const MIN_SUBMIT_MS = 2000;
+
 export const NewsletterSection = () => {
   const [email, setEmail] = useState('');
+  const [honeypot, setHoneypot] = useState('');
+  const [loadedAt] = useState(() => Date.now());
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+
+    // Silent bot trap
+    const tooFast = Date.now() - loadedAt < MIN_SUBMIT_MS;
+    if (honeypot.trim() !== '' || tooFast) {
+      setStatus('success');
+      setEmail('');
+      return;
+    }
+
     const formId = import.meta.env.VITE_CONVERTKIT_FORM_ID;
     if (!formId) {
-      console.warn('[newsletter] VITE_CONVERTKIT_FORM_ID not set — TODO: configure ConvertKit form');
       setStatus('error');
       return;
     }
@@ -61,9 +73,31 @@ export const NewsletterSection = () => {
                 disabled={status === 'loading'}
                 className="group flex items-center justify-center gap-2 rounded-2xl bg-zinc-900 px-8 py-4 text-lg font-bold text-white transition-all hover:bg-brand-red disabled:opacity-50"
               >
-                {status === 'loading' ? 'Joining...' : status === 'success' ? 'Subscribed!' : 'Join the List'}
+                {status === 'loading'
+                  ? 'Joining...'
+                  : status === 'success'
+                    ? 'Subscribed!'
+                    : 'Join the List'}
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </button>
+
+              {/* Honeypot — hidden from users */}
+              <div
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
+              >
+                <label>
+                  Website
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </label>
+              </div>
             </form>
             {status === 'success' && (
               <motion.p
@@ -75,7 +109,9 @@ export const NewsletterSection = () => {
               </motion.p>
             )}
             {status === 'error' && (
-              <p className="mt-4 text-sm font-medium text-red-600">Something went wrong. Please try again.</p>
+              <p className="mt-4 text-sm font-medium text-red-600">
+                Something went wrong. Please try again.
+              </p>
             )}
           </div>
         </div>

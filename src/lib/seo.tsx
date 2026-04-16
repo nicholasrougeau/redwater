@@ -11,6 +11,14 @@ export const organizationJsonLd = {
   logo: `${SITE_URL}/logo.svg`,
   description:
     'AI automation agency building custom operating systems for coaches, lawyers, consultants, and agencies.',
+  email: 'nick@redwaterrev.com',
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'nick@redwaterrev.com',
+    contactType: 'sales',
+    areaServed: 'US',
+    availableLanguage: ['en'],
+  },
   sameAs: [] as string[],
 };
 

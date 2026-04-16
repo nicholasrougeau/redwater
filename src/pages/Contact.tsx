@@ -1,33 +1,36 @@
 import { useState, type FormEvent } from 'react';
 import { Mail, MapPin, Calendar as CalendarIcon } from 'lucide-react';
-import Cal from '@calcom/embed-react';
-import { Turnstile } from '@marsidev/react-turnstile';
 import { SEO } from '../lib/seo';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
+import { Scheduler } from '../components/Scheduler';
+
+const MIN_SUBMIT_MS = 2000;
 
 export const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState<string>('');
-  const [token, setToken] = useState<string>('');
-
-  const calUsername = import.meta.env.VITE_CAL_USERNAME;
-  const turnstileSiteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+  const [honeypot, setHoneypot] = useState('');
+  const [loadedAt] = useState(() => Date.now());
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (turnstileSiteKey && !token) {
-      setErrorMsg('Please complete the bot check.');
-      setStatus('error');
-      return;
-    }
     setStatus('loading');
     setErrorMsg('');
+
+    // Silent bot trap — pretend success, don't tip them off
+    const tooFast = Date.now() - loadedAt < MIN_SUBMIT_MS;
+    if (honeypot.trim() !== '' || tooFast) {
+      setStatus('success');
+      setFormData({ name: '', email: '', company: '', message: '' });
+      return;
+    }
+
     const { error } = await supabase.from('website_leads').insert({
       name: formData.name,
       email: formData.email,
       company: formData.company,
-      message: formData.message,
+      notes: formData.message,
       source: 'contact-form',
     });
     if (error) {
@@ -37,7 +40,6 @@ export const Contact = () => {
     }
     setStatus('success');
     setFormData({ name: '', email: '', company: '', message: '' });
-    setToken('');
   };
 
   return (
@@ -49,7 +51,9 @@ export const Contact = () => {
       />
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl">
-          <h1 className="mb-6 text-5xl font-bold text-zinc-900 md:text-7xl">Let's build your AI operating system.</h1>
+          <h1 className="mb-6 text-5xl font-bold text-zinc-900 md:text-7xl">
+            Let's build your AI operating system.
+          </h1>
           <p className="text-xl text-zinc-500">
             Book a call to scope the work, or send a message and we'll reply same-day.
           </p>
@@ -62,19 +66,9 @@ export const Contact = () => {
                 <CalendarIcon className="h-6 w-6" />
                 <h2 className="text-xl font-bold">Book a strategy call</h2>
               </div>
-              {calUsername ? (
-                <div className="rounded-2xl overflow-hidden">
-                  <Cal
-                    calLink={calUsername}
-                    style={{ width: '100%', height: '640px', overflow: 'scroll' }}
-                    config={{ layout: 'month_view' }}
-                  />
-                </div>
-              ) : (
-                <div className="aspect-video rounded-2xl bg-zinc-100 flex items-center justify-center text-zinc-400 font-medium p-6 text-center">
-                  Calendar booking will appear here once VITE_CAL_USERNAME is configured.
-                </div>
-              )}
+              <div className="px-2 pb-2">
+                <Scheduler />
+              </div>
             </div>
 
             <div className="space-y-8">
@@ -84,7 +78,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-zinc-900">Email</h3>
-                  <p className="text-zinc-500">hello@redwaterrev.com</p>
+                  <p className="text-zinc-500">nick@redwaterrev.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-6">
@@ -143,30 +137,46 @@ export const Contact = () => {
                 />
               </div>
 
-              {turnstileSiteKey && (
-                <Turnstile
-                  siteKey={turnstileSiteKey}
-                  onSuccess={setToken}
-                  onError={() => setToken('')}
-                  onExpire={() => setToken('')}
-                />
-              )}
+              {/* Honeypot — hidden from users */}
+              <div
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
+              >
+                <label>
+                  Website
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    name="website"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </label>
+              </div>
 
               <button
                 type="submit"
                 disabled={status === 'loading'}
                 className="w-full rounded-xl bg-brand-red py-4 font-bold text-white transition-all hover:scale-[1.02] hover:bg-zinc-900 disabled:opacity-50"
               >
-                {status === 'loading' ? 'Sending...' : status === 'success' ? 'Message sent.' : 'Send message'}
+                {status === 'loading'
+                  ? 'Sending...'
+                  : status === 'success'
+                    ? 'Message sent.'
+                    : 'Send message'}
               </button>
 
               {!isSupabaseConfigured && (
                 <p className="text-center text-xs text-zinc-400">
-                  Form backend not configured yet. Set VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY to enable submissions.
+                  Form backend not configured yet. Set VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY
+                  to enable submissions.
                 </p>
               )}
               {status === 'error' && (
-                <p className="text-center text-sm text-red-500">{errorMsg || 'Something went wrong. Please try again.'}</p>
+                <p className="text-center text-sm text-red-500">
+                  {errorMsg || 'Something went wrong. Please try again.'}
+                </p>
               )}
             </form>
           </div>

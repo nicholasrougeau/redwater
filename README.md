@@ -10,8 +10,8 @@ Marketing site for Redwater Revenue, Nick Rougeau's AI automation agency. Target
 - `react-router-dom` v7 (SPA, lazy-loaded routes)
 - `react-helmet-async` for per-route SEO
 - `@supabase/supabase-js` for contact-form inserts (insert-only RLS)
-- `@calcom/embed-react` for inline booking
-- `@marsidev/react-turnstile` for bot protection
+- Custom Scheduler component (Google Calendar via Supabase Edge Function) — see `supabase/functions/calendar/`
+- Honeypot + min-time-to-submit for bot protection
 - Plausible for privacy-friendly analytics
 
 ## Local dev
@@ -38,7 +38,7 @@ npm run build
 # uploads dist/ → Pages → https://redwaterrev.com
 ```
 
-`public/CNAME`, `public/404.html` (SPA fallback), `public/robots.txt`, and `public/sitemap.xml` survive builds. Configure build-time env vars as GitHub Actions secrets (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_CONVERTKIT_FORM_ID`, `VITE_CAL_USERNAME`, `VITE_TURNSTILE_SITE_KEY`, `VITE_PLAUSIBLE_DOMAIN`).
+`public/CNAME`, `public/404.html` (SPA fallback), `public/robots.txt`, and `public/sitemap.xml` survive builds. Configure build-time env vars as GitHub Actions secrets (`VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`, `VITE_CONVERTKIT_FORM_ID`, `VITE_SCHEDULER_API_URL`, `VITE_PLAUSIBLE_DOMAIN`).
 
 ## Scripts
 

@@ -11,6 +11,9 @@ const Contact = lazy(() => import('./pages/Contact').then((m) => ({ default: m.C
 const CaseStudies = lazy(() =>
   import('./pages/CaseStudies').then((m) => ({ default: m.CaseStudies })),
 );
+const ServiceDetail = lazy(() =>
+  import('./pages/ServiceDetail').then((m) => ({ default: m.ServiceDetail })),
+);
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -38,6 +41,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />

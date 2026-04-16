@@ -29,7 +29,7 @@ export const Footer = () => {
           <div>
             <h4 className="mb-6 font-display font-bold uppercase tracking-widest text-zinc-400 text-xs">Connect</h4>
             <ul className="space-y-4">
-              <li><a href="mailto:hello@redwaterrev.com" className="text-zinc-600 hover:text-brand-red transition-colors">hello@redwaterrev.com</a></li>
+              <li><a href="mailto:nick@redwaterrev.com" className="text-zinc-600 hover:text-brand-red transition-colors">nick@redwaterrev.com</a></li>
               <li><Link to="/contact" className="text-zinc-600 hover:text-brand-red transition-colors">Book a call</Link></li>
             </ul>
           </div>
@@ -38,7 +38,7 @@ export const Footer = () => {
         <div className="mt-20 border-t border-zinc-200 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-zinc-400">
           <div>© 2026 Redwater Revenue. All rights reserved.</div>
           <div className="flex gap-6">
-            <a href="mailto:hello@redwaterrev.com" className="hover:text-brand-red transition-colors">hello@redwaterrev.com</a>
+            <a href="mailto:nick@redwaterrev.com" className="hover:text-brand-red transition-colors">nick@redwaterrev.com</a>
           </div>
         </div>
       </div>
