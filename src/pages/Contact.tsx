@@ -7,7 +7,7 @@ import { Scheduler } from '../components/Scheduler';
 const MIN_SUBMIT_MS = 2000;
 
 export const Contact = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', company: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', company: '', industry: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [honeypot, setHoneypot] = useState('');
@@ -22,7 +22,7 @@ export const Contact = () => {
     const tooFast = Date.now() - loadedAt < MIN_SUBMIT_MS;
     if (honeypot.trim() !== '' || tooFast) {
       setStatus('success');
-      setFormData({ name: '', email: '', company: '', message: '' });
+      setFormData({ name: '', email: '', company: '', industry: '', message: '' });
       return;
     }
 
@@ -30,6 +30,7 @@ export const Contact = () => {
       name: formData.name,
       email: formData.email,
       company: formData.company,
+      industry: formData.industry,
       notes: formData.message,
       source: 'contact-form',
     });
@@ -39,7 +40,7 @@ export const Contact = () => {
       return;
     }
     setStatus('success');
-    setFormData({ name: '', email: '', company: '', message: '' });
+    setFormData({ name: '', email: '', company: '', industry: '', message: '' });
   };
 
   return (
@@ -124,6 +125,16 @@ export const Contact = () => {
                   className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 focus:border-brand-orange focus:outline-none"
                   value={formData.company}
                   onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                />
+              </div>
+              <div>
+                <label className="mb-2 block text-sm font-bold text-zinc-700">Industry</label>
+                <input
+                  type="text"
+                  className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 focus:border-brand-orange focus:outline-none"
+                  placeholder="e.g. law firm, coaching, landscaping, SaaS"
+                  value={formData.industry}
+                  onChange={(e) => setFormData({ ...formData, industry: e.target.value })}
                 />
               </div>
               <div>

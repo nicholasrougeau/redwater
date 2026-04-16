@@ -143,6 +143,7 @@ interface BookingBody {
   slot?: string;
   name?: string;
   email?: string;
+  industry?: string;
   notes?: string;
   website?: string;
   loaded_at?: number;
@@ -178,7 +179,7 @@ async function handleBook(req: Request): Promise<Response> {
   } catch {
     return jsonResponse({ error: 'Invalid JSON' }, 400);
   }
-  const { slot, name, email, notes, website, loaded_at } = body;
+  const { slot, name, email, industry, notes, website, loaded_at } = body;
 
   // Silent bot trap — dummy success, don't hint at rejection
   const tooFast = typeof loaded_at === 'number' && Date.now() - loaded_at < 2000;
@@ -235,6 +236,7 @@ async function handleBook(req: Request): Promise<Response> {
     await supabaseAdmin.from('website_leads').insert({
       name,
       email,
+      industry: industry ?? null,
       notes: notes ?? null,
       source: 'scheduler',
     });

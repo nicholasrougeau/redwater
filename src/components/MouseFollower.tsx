@@ -2,9 +2,10 @@ import { motion, useMotionValue, useSpring } from 'motion/react';
 import { useEffect, useState } from 'react';
 
 export const MouseFollower = () => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(-500);
+  const mouseY = useMotionValue(-500);
   const [enabled, setEnabled] = useState(false);
+  const [hasMoved, setHasMoved] = useState(false);
 
   const springConfig = { damping: 25, stiffness: 150 };
   const x = useSpring(mouseX, springConfig);
@@ -29,12 +30,13 @@ export const MouseFollower = () => {
     const handleMouseMove = (e: MouseEvent) => {
       mouseX.set(e.clientX);
       mouseY.set(e.clientY);
+      if (!hasMoved) setHasMoved(true);
     };
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [enabled, mouseX, mouseY]);
+  }, [enabled, mouseX, mouseY, hasMoved]);
 
-  if (!enabled) return null;
+  if (!enabled || !hasMoved) return null;
 
   return (
     <motion.div

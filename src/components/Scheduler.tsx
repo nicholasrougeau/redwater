@@ -89,7 +89,7 @@ export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
   const [slots, setSlots] = useState<string[]>([]);
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
-  const [form, setForm] = useState({ name: '', email: '', notes: '' });
+  const [form, setForm] = useState({ name: '', email: '', industry: '', notes: '' });
   const [honeypot, setHoneypot] = useState('');
   const [booking, setBooking] = useState(false);
   const [confirmation, setConfirmation] = useState<BookingConfirmation | null>(null);
@@ -170,6 +170,7 @@ export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
           slot: selectedSlot,
           name: form.name,
           email: form.email,
+          industry: form.industry,
           notes: form.notes,
           website: honeypot,
           loaded_at: loadedAt,
@@ -388,6 +389,16 @@ export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
               className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 focus:border-brand-orange focus:outline-none"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
+            />
+          </div>
+          <div>
+            <label className="mb-2 block text-sm font-bold text-zinc-700">Industry</label>
+            <input
+              type="text"
+              className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 focus:border-brand-orange focus:outline-none"
+              placeholder="e.g. law firm, coaching, landscaping, SaaS"
+              value={form.industry}
+              onChange={(e) => setForm({ ...form, industry: e.target.value })}
             />
           </div>
           <div>
