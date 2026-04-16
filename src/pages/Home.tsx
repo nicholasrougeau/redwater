@@ -177,8 +177,12 @@ export const Home = () => {
 
       {/* CTA */}
       <section className="px-6 py-24">
-        <SpotlightCard className="mx-auto max-w-7xl !p-1 luxury-gradient overflow-hidden">
-          <div className="rounded-[calc(1.5rem-1px)] bg-zinc-900 px-8 py-24 text-center text-white">
+        <SpotlightCard
+          dark
+          tilt={false}
+          className="mx-auto max-w-7xl !px-8 !py-24 text-center text-white overflow-hidden"
+        >
+          <div>
             <h2 className="mb-6 text-4xl font-bold md:text-6xl">Ready to automate your revenue?</h2>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-zinc-400">
               30-minute call. We'll map the highest-leverage system to build first.

@@ -33,8 +33,8 @@ export const Services = () => {
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-red/20 bg-brand-red/5 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-red">
               {featured.tagline}
             </div>
-            <SpotlightCard className="!p-1 luxury-gradient">
-              <div className="rounded-[calc(1.5rem-1px)] bg-zinc-900 p-10 md:p-16 text-white">
+            <SpotlightCard dark tilt={false} className="!p-10 md:!p-16 text-white">
+              <div>
                 <h2 className="mb-4 text-4xl font-bold md:text-5xl">{featured.title}</h2>
                 <p className="mb-10 max-w-3xl text-lg text-zinc-300">{featured.outcome}</p>
                 <ul className="mb-10 grid gap-4 md:grid-cols-2">
