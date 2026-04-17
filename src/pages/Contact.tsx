@@ -3,7 +3,6 @@ import { Mail, MapPin, Calendar as CalendarIcon } from 'lucide-react';
 import { SEO } from '../lib/seo';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { Scheduler } from '../components/Scheduler';
-import { LiquidGradient } from '../components/LiquidGradient';
 
 const MIN_SUBMIT_MS = 2000;
 
@@ -45,16 +44,13 @@ export const Contact = () => {
   };
 
   return (
-    <div className="relative pt-32 pb-24">
+    <div className="pt-32 pb-24">
       <SEO
         title="Contact — Redwater Revenue"
         description="Book a strategy call or send a message. We build AI operating systems for coaches, lawyers, consultants, and agencies."
         path="/contact"
       />
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[40rem] overflow-hidden">
-        <LiquidGradient intensity="subtle" />
-      </div>
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 max-w-3xl">
           <h1 className="mb-6 text-5xl font-bold text-zinc-900 md:text-7xl">
             Let's build your AI operating system.

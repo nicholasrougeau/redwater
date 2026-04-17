@@ -3,7 +3,6 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Particles } from '../components/Particles';
 import { SpotlightCard } from '../components/SpotlightCard';
-import { LiquidGradient } from '../components/LiquidGradient';
 import { Roadmap } from '../components/Roadmap';
 import { NewsletterSection } from '../components/NewsletterSection';
 import { SEO } from '../lib/seo';
@@ -52,7 +51,6 @@ export const Home = () => {
       />
       {/* Hero */}
       <section className="relative overflow-hidden px-6 py-24 lg:py-32">
-        <LiquidGradient intensity="hero" />
         <Particles />
         <div className="mx-auto max-w-7xl">
           <motion.div
@@ -93,9 +91,10 @@ export const Home = () => {
         </div>
       </section>
 
-      {/* Tools strip */}
-      <section className="border-y border-zinc-100 bg-zinc-50/50 py-16 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6">
+      {/* Tools strip — seamless fade, no hard borders */}
+      <section className="relative overflow-hidden py-20">
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-zinc-50/60 to-white" aria-hidden="true" />
+        <div className="relative mx-auto max-w-7xl px-6">
           <p className="mb-12 text-center text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
             Built with the tools we use every day
           </p>
