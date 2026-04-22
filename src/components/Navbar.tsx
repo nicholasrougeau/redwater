@@ -132,7 +132,7 @@ export const Navbar = () => {
                         return (
                           <li key={bucket.slug}>
                             <Link
-                              to={`/services#${bucket.slug}`}
+                              to={`/services/category/${bucket.slug}`}
                               className={`group flex items-center gap-4 px-5 py-4 transition-colors ${
                                 featured
                                   ? 'bg-brand-red/[0.03] hover:bg-brand-red/[0.06]'
@@ -176,7 +176,7 @@ export const Navbar = () => {
                     </ul>
                     <div className="flex items-center justify-between border-t border-zinc-100 bg-zinc-50 px-5 py-3">
                       <span className="text-xs text-zinc-500">
-                        {SERVICES.length} services across 7 buckets
+                        {`${SERVICES.length} services across ${BUCKETS.length} categories`}
                       </span>
                       <Link
                         to="/services"
@@ -308,7 +308,7 @@ export const Navbar = () => {
                                     >
                                       <li>
                                         <Link
-                                          to={`/services#${bucket.slug}`}
+                                          to={`/services/category/${bucket.slug}`}
                                           className="block rounded-md px-3 py-2 text-xs font-bold uppercase tracking-wider text-brand-red hover:bg-brand-red/5"
                                           onClick={() => setMobileOpen(false)}
                                         >

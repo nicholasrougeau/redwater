@@ -1,9 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import {
   Mail,
-  Users,
   Search,
-  Video,
   Database,
   MessageSquare,
   Reply,
@@ -19,6 +17,7 @@ import {
   Send,
   PenSquare,
   Tags,
+  Star,
   Repeat,
   Film,
   Image as ImageIcon,
@@ -26,10 +25,8 @@ import {
   Sparkles,
   BookOpen,
   TrendingUp,
-  Layers,
   Compass,
   Hash,
-  ListChecks,
   FileSearch,
   Inbox,
   ClipboardList,
@@ -55,41 +52,13 @@ export interface Service {
 }
 
 export const BUCKETS: Bucket[] = [
-  {
-    slug: 'bundled',
-    title: 'Bundled / Retainer',
-    intro: 'One team running the whole stack end-to-end.',
-  },
-  {
-    slug: 'outreach',
-    title: 'Outreach & Lead Gen',
-    intro: 'Fill the top of your pipeline without hiring an SDR.',
-  },
-  {
-    slug: 'website-sales-assets',
-    title: 'Website & Sales Assets',
-    intro: 'Everything that closes the deal once the lead shows up.',
-  },
-  {
-    slug: 'custom-automation',
-    title: 'Custom Automation & Engineering',
-    intro: 'Bespoke systems built around how your business actually runs.',
-  },
-  {
-    slug: 'seo-content-ops',
-    title: 'SEO & Content Ops',
-    intro: 'Built-in traffic, not rented.',
-  },
-  {
-    slug: 'content-video',
-    title: 'Content & Video Production',
-    intro: 'Convert one piece of work into a month of content.',
-  },
-  {
-    slug: 'research-intelligence',
-    title: 'Research & Intelligence',
-    intro: "Know what's happening before your competitors do.",
-  },
+  { slug: 'bundled', title: 'Full-Stack System', intro: 'One system, unlimited support, zero duct tape.' },
+  { slug: 'outreach', title: 'Outreach & Lead Gen', intro: 'Cold email, content, and newsletters — the inbound + outbound engine.' },
+  { slug: 'website-sales-assets', title: 'Website & Sales Assets', intro: 'Everything that closes the deal once the lead shows up.' },
+  { slug: 'custom-automation', title: 'AI Consulting & Engineering', intro: 'Training, custom skills, and systems built around how you actually run.' },
+  { slug: 'seo-content-ops', title: 'SEO & Visibility', intro: 'Rank higher. Earn traffic. Protect your reputation.' },
+  { slug: 'content-video', title: 'Content & Video Production', intro: 'Convert one piece of work into a month of content.' },
+  { slug: 'research-intelligence', title: 'Research & Intelligence', intro: "Know what's happening before your competitors do." },
 ];
 
 export const SERVICES: Service[] = [
@@ -97,16 +66,17 @@ export const SERVICES: Service[] = [
   {
     slug: 'full-stack-agency-operator',
     bucket: 'bundled',
-    title: 'Full-Stack Agency Operator',
+    title: 'Full-Stack System',
     tagline: 'Bundled retainer',
     outcome:
-      'Outreach, CRM, reporting, and onboarding — one system, one monthly invoice, zero duct tape.',
+      'Outreach, CRM, reporting, content, and onboarding — one system, unlimited support, zero duct tape.',
     icon: Boxes,
     description:
-      'Every revenue-facing system under one retainer. We run outreach, keep the CRM clean, ship weekly reports, and onboard new clients without you touching a form. One team, one invoice, no subcontractor roulette.',
+      "Every revenue-facing system under one retainer. Outreach running daily, CRM kept clean, weekly reports shipping, content published, clients onboarded without you touching a form. One team, one invoice, no subcontractor roulette.",
     deliverables: [
       'Cold email + lead scraping + follow-up nurture running daily',
       'CRM + pipeline dashboards updated in real time',
+      'Content pipeline — blog, newsletter, and social posts publishing on cadence',
       'Weekly client reports generated and sent on your cadence',
       'Onboarding automation — contract to kickoff without manual steps',
       'Monthly strategy review and backlog triage',
@@ -236,7 +206,7 @@ export const SERVICES: Service[] = [
     bucket: 'website-sales-assets',
     title: 'Full Website Build & Deploy',
     tagline: 'Marketing sites that convert',
-    outcome: 'High-fidelity marketing sites shipped in days, not quarters.',
+    outcome: 'High-fidelity marketing sites shipped in days, not months.',
     icon: Globe,
     description:
       "React + Tailwind marketing sites built around your actual offer — not a template. Shipped fast, deployed on infra you own, wired to forms and analytics on day one.",
@@ -257,12 +227,12 @@ export const SERVICES: Service[] = [
     bucket: 'website-sales-assets',
     title: 'Animated Proposal Websites',
     tagline: 'Cinematic proposals',
-    outcome: 'GSAP-animated proposal sites that make you look inevitable.',
+    outcome: 'Animated proposal sites that confirm your expertise.',
     icon: FileText,
     description:
       "Ditch the PDF. We turn your proposal into a scrolling, animated website prospects share internally — and close before the next meeting.",
     deliverables: [
-      'GSAP scroll animations built around your proposal',
+      'Scroll animations built around your proposal',
       'Live deploy on a one-off URL per client',
       'Branded to match your voice + design system',
       'Optional PDF export for procurement',
@@ -276,7 +246,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'animated-client-progress-reports',
     bucket: 'website-sales-assets',
-    title: 'Animated Client Progress Reports',
+    title: 'Automated Client Progress Reports',
     tagline: 'Weekly WOW for clients',
     outcome: 'Branded, animated weekly reports that keep clients bought-in.',
     icon: LineChart,
@@ -321,11 +291,11 @@ export const SERVICES: Service[] = [
     slug: 'claude-code-consulting',
     bucket: 'custom-automation',
     title: 'Claude Code Consulting & Team Onboarding',
-    tagline: 'Adopt Claude Code safely',
-    outcome: "Get your team shipping with Claude Code without blowing up main.",
+    tagline: 'Adopt Claude Code',
+    outcome: 'Leverage Claude Code to strategize and ship custom software for your business.',
     icon: Code2,
     description:
-      'We come in, audit how your team ships, and set up Claude Code with the right skills, hooks, and guardrails. Your engineers move 3–5x faster within weeks — without reckless commits.',
+      "We come in, audit how your team ships, and set up Claude Code with the right skills, hooks, and guardrails. Your engineers move 3–5x faster within weeks, with fewer costly mistakes.",
     deliverables: [
       'Claude Code setup across your team',
       'Skills + hooks + permissions configured',
@@ -341,9 +311,9 @@ export const SERVICES: Service[] = [
   {
     slug: 'custom-claude-skills',
     bucket: 'custom-automation',
-    title: 'Custom Claude Code Skill Development',
+    title: 'Custom AI Skill Development',
     tagline: 'Skills tailored to your workflow',
-    outcome: 'Custom skills that encode your playbook so Claude runs it the same way every time.',
+    outcome: 'Custom skills that encode your playbook so AI runs it the same way every time.',
     icon: Wrench,
     description:
       "Every team has a few workflows worth encoding: the way you scope, the way you ship, the way you report. We build custom Claude skills that run them the same way every time, for any team member.",
@@ -470,7 +440,7 @@ export const SERVICES: Service[] = [
   {
     slug: 'seo-meta-automation',
     bucket: 'seo-content-ops',
-    title: 'SEO Meta Automation',
+    title: 'SEO Metadata Automation',
     tagline: 'Meta tags at scale',
     outcome: "Auto-generated SEO meta across dozens of sites — for agencies managing WordPress/Elementor fleets.",
     icon: Tags,
@@ -486,6 +456,27 @@ export const SERVICES: Service[] = [
       'Agencies managing 20+ client sites',
       'SEO teams running WordPress at scale',
       'Anyone losing revenue to bad meta',
+    ],
+  },
+  {
+    slug: 'review-automation',
+    bucket: 'seo-content-ops',
+    title: 'Review Automation',
+    tagline: 'Reviews + responses',
+    outcome: 'Auto-request reviews from happy clients and reply to every new one in-brand.',
+    icon: Star,
+    description:
+      "Every satisfied client gets an automatic review request at the right moment. Every new review gets a voice-matched response within the hour. Your reputation flow runs without you touching it.",
+    deliverables: [
+      'Post-project review request automation',
+      'Auto-drafted responses to new reviews',
+      'Google Business Profile + Yelp integration',
+      'Weekly review digest in Slack',
+    ],
+    idealFor: [
+      'Local service businesses ranking on Google',
+      'Agencies managing reputation for clients',
+      'Anyone whose review count stalled',
     ],
   },
 
@@ -621,12 +612,12 @@ export const SERVICES: Service[] = [
   {
     slug: 'literature-deep-research',
     bucket: 'research-intelligence',
-    title: 'Literature / Deep Research',
-    tagline: 'Research briefs at depth',
-    outcome: "Academic + web + forum research synthesized into a brief you can act on.",
+    title: 'Automated Deep Research',
+    tagline: 'Research agents, not a research hire',
+    outcome: 'Automated research agents synthesize academic, web, and forum sources into briefs you can act on.',
     icon: BookOpen,
     description:
-      "Deep research with sources. Academic papers, web search, niche forums — all synthesized into a single brief you can use to make a decision, write a keynote, or launch a product.",
+      "Deep research as an agent, not a service. Academic papers, web search, niche forums — all synthesized into a single brief you can use to make a decision, write a keynote, or launch a product. Runs automatically, not by the hour.",
     deliverables: [
       'PubMed / academic search',
       'Web + forum + Reddit synthesis',
@@ -658,27 +649,6 @@ export const SERVICES: Service[] = [
       'YouTubers in competitive niches',
       'Agencies doing YT for clients',
       'Creators who want pattern-recognition without manual watching',
-    ],
-  },
-  {
-    slug: 'multi-agent-consensus',
-    bucket: 'research-intelligence',
-    title: 'Multi-Agent Consensus Analysis',
-    tagline: 'Filter hallucinations',
-    outcome: 'Spawn N agents on the same question, aggregate the consensus.',
-    icon: Layers,
-    description:
-      "For the decisions worth getting right: spawn N agents on the same question with different framings, aggregate the results, surface the consensus and the outliers.",
-    deliverables: [
-      'Question framing + variation',
-      'N parallel agent runs',
-      'Aggregated consensus report',
-      'Dissent + outlier analysis',
-    ],
-    idealFor: [
-      'Founders making high-stakes calls',
-      'Investors evaluating opportunities',
-      'Anyone who wants to filter LLM hallucinations',
     ],
   },
   {
@@ -724,27 +694,6 @@ export const SERVICES: Service[] = [
     ],
   },
   {
-    slug: 'video-to-action',
-    bucket: 'research-intelligence',
-    title: 'Video-to-Action Extraction',
-    tagline: 'Turn YouTube into checklists',
-    outcome: 'Extract actionable steps from any video using Gemini video understanding.',
-    icon: ListChecks,
-    description:
-      "Paste any YouTube link and get a step-by-step checklist back. Gemini video understanding — not just transcript. Turn 2 hours of tutorial into 10 minutes of execution.",
-    deliverables: [
-      'YouTube link → step-by-step brief',
-      'Gemini video understanding (not transcript-only)',
-      'Checklist + timestamps',
-      'Markdown export',
-    ],
-    idealFor: [
-      'Operators learning from long tutorials',
-      'Teams standardizing workflows from videos',
-      'Anyone tired of rewatching to find the key step',
-    ],
-  },
-  {
     slug: 'invoice-data-extraction',
     bucket: 'research-intelligence',
     title: 'Invoice Data Extraction',
@@ -752,11 +701,11 @@ export const SERVICES: Service[] = [
     outcome: "Extract structured data from PDF invoices — vendor, amount, date, line items.",
     icon: FileSearch,
     description:
-      "Drop a folder of invoice PDFs in, get clean structured JSON out — vendor, amount, date, line items, tax. Feeds your accounting without manual entry.",
+      "Drop a folder of invoice PDFs in, get structured data extracted and auto-pushed to your CRM or accounting tool — vendor, amount, date, line items, tax. No manual entry.",
     deliverables: [
       'PDF → structured JSON pipeline',
       'Vendor + line-item extraction',
-      'Export to Sheets / QuickBooks / Xero',
+      'Auto-updates to CRM / QuickBooks / Xero / Sheets',
       'Error-flagging on unreadable docs',
     ],
     idealFor: [
@@ -767,7 +716,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'inbox-triage-labeling',
-    bucket: 'research-intelligence',
+    bucket: 'custom-automation',
     title: 'Inbox Triage & Labeling',
     tagline: 'Auto-triaged Gmail',
     outcome: 'Auto-label emails into Action Required / Waiting On / Reference.',
@@ -788,7 +737,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: 'meeting-notes-action-items',
-    bucket: 'research-intelligence',
+    bucket: 'custom-automation',
     title: 'Meeting Notes → Action Items',
     tagline: 'Call → tasks',
     outcome: "Turn meeting transcripts into structured action items with owners + deadlines.",

@@ -155,7 +155,7 @@ export const ServiceDetail = () => {
           </Link>
           {bucket && (
             <Link
-              to={`/services#${bucket.slug}`}
+              to={`/services/category/${bucket.slug}`}
               className="inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-zinc-700 transition-all hover:border-brand-orange/40 hover:text-brand-red"
             >
               <BucketIcon className="h-3.5 w-3.5" />

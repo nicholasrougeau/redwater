@@ -23,21 +23,21 @@ const partners = [
 ];
 
 const bucketSummaries = [
-  { slug: 'retainer', title: 'Bundled Retainer', blurb: 'Full-stack agency operator: outreach, CRM, reporting, onboarding.' },
-  { slug: 'outreach', title: 'Outreach & Lead Gen', blurb: 'Cold email, scraping, nurture, inbox reply, LinkedIn DMs.' },
-  { slug: 'website-sales-assets', title: 'Website & Sales Assets', blurb: 'Sites, animated proposals, progress reports, decks.' },
-  { slug: 'automation-engineering', title: 'Custom Automation', blurb: 'Claude Code consulting, custom skills, CRMs, onboarding, reporting.' },
-  { slug: 'seo-content-ops', title: 'SEO & Content Ops', blurb: 'Keyword-researched blog automation. SEO meta at scale.' },
+  { slug: 'bundled', title: 'Full-Stack System', blurb: 'Outreach, CRM, reporting, content, and onboarding — one system, unlimited support.' },
+  { slug: 'outreach', title: 'Outreach & Lead Gen', blurb: 'Cold email, scraping, nurture, inbox reply, LinkedIn DMs, content, newsletters.' },
+  { slug: 'website-sales-assets', title: 'Website & Sales Assets', blurb: 'Sites, animated proposals, automated progress reports, decks.' },
+  { slug: 'custom-automation', title: 'AI Consulting & Engineering', blurb: 'Claude Code training, custom skills, CRMs, onboarding, reporting, inbox triage.' },
+  { slug: 'seo-content-ops', title: 'SEO & Visibility', blurb: 'Keyword-researched blog automation, SEO metadata at scale, review automation, and more.' },
   { slug: 'content-video', title: 'Content & Video', blurb: 'Repurposing pipeline, dashboards, shorts, thumbnails, scheduling.' },
-  { slug: 'research-intelligence', title: 'Research & Intelligence', blurb: 'Deep research, competitor tracking, consensus, triage, extraction.' },
+  { slug: 'research-intelligence', title: 'Research & Intelligence', blurb: 'Deep research agents, competitor tracking, cross-niche mining, trend monitoring.' },
 ];
 
 const proofPoints: { value: string; label: string }[] = [
-  { value: '+$128k', label: 'Cash collected in 4 months — landscaper' },
-  { value: '2.4 → 4.2', label: 'Review score in 3 weeks' },
-  { value: '2x', label: 'Google calls + site clicks in 1 month' },
-  { value: '27.9 → 12.2', label: 'Google ranking position in 2 weeks' },
-  { value: '$24k', label: 'From 4 emails to past customers' },
+  { value: '+$128k', label: 'Cash collected in 4 months' },
+  { value: '2.4 → 4.2', label: 'Google reviews in 3 weeks' },
+  { value: '50 hrs/wk', label: 'Content production time cut — blog automation' },
+  { value: '27.9 → 4.7', label: 'Google ranking position on target keywords' },
+  { value: '$900k', label: 'Added to pipeline via automated content + auto-responders' },
   { value: '$900M', label: 'Real estate firm running our automations' },
 ];
 
@@ -45,8 +45,8 @@ export const Home = () => {
   return (
     <div className="pt-20">
       <SEO
-        title="Redwater Revenue — AI Automation for High-Status Professionals"
-        description="Custom AI operating systems for coaches, lawyers, consultants, and agencies. Outreach, CRM, content, and reporting that scale revenue and reclaim time."
+        title="Redwater Revenue — AI Systems for Local Businesses and Professionals"
+        description="Custom AI systems for local businesses including coaches, lawyers, consultants, and agencies. Outreach, CRM, content, and reporting that scale revenue and reclaim time."
         path="/"
       />
       {/* Hero */}
@@ -67,10 +67,10 @@ export const Home = () => {
               Now accepting new clients for Q2
             </div>
             <h1 className="mb-6 text-5xl font-bold leading-[1.1] text-zinc-900 md:text-7xl lg:text-8xl">
-              The AI Operating System for <span className="text-gradient">High-Status</span> Professionals.
+              AI Systems for <span className="text-gradient">Local Businesses</span> and Professionals.
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-zinc-500 md:text-xl">
-              Custom automation systems for coaches, lawyers, consultants, and agencies. We ship outreach, CRM, content, and reporting infrastructure that scales revenue without scaling headcount.
+              Custom automation systems for local businesses including coaches, lawyers, consultants, and agencies. We ship outreach, CRM, content, and reporting infrastructure that scales revenue without scaling headcount.
             </p>
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Link
@@ -96,7 +96,7 @@ export const Home = () => {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white via-zinc-50/60 to-white" aria-hidden="true" />
         <div className="relative mx-auto max-w-7xl px-6">
           <p className="mb-12 text-center text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
-            Built with the tools we use every day
+            Partnered with trusted enterprise systems
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-16 gap-y-10 opacity-60 grayscale transition-all hover:opacity-100 hover:grayscale-0">
             {partners.map((partner) => (
@@ -119,9 +119,9 @@ export const Home = () => {
         <div className="mx-auto max-w-7xl">
           <div className="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row">
             <div className="max-w-2xl">
-              <h2 className="mb-4 text-4xl font-bold text-zinc-900 md:text-5xl">Seven buckets. One operating system.</h2>
+              <h2 className="mb-4 text-4xl font-bold text-zinc-900 md:text-5xl">One system. Every piece your business needs.</h2>
               <p className="text-lg text-zinc-500">
-                We don't "use AI." We ship custom infrastructure that replaces manual work with code you own.
+                Custom infrastructure that replaces manual work with code you own.
               </p>
             </div>
             <Link to="/services" className="group flex items-center gap-2 font-bold text-brand-red">
@@ -136,7 +136,7 @@ export const Home = () => {
                 <h3 className="mb-3 text-xl font-bold text-zinc-900">{b.title}</h3>
                 <p className="mb-6 text-sm text-zinc-500 leading-relaxed">{b.blurb}</p>
                 <Link
-                  to={`/services#${b.slug}`}
+                  to={`/services/category/${b.slug}`}
                   className="inline-flex items-center gap-2 text-sm font-bold text-brand-red transition-all hover:gap-3"
                 >
                   See services <ArrowRight className="h-4 w-4" />

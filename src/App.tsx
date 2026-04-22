@@ -14,6 +14,9 @@ const CaseStudies = lazy(() =>
 const ServiceDetail = lazy(() =>
   import('./pages/ServiceDetail').then((m) => ({ default: m.ServiceDetail })),
 );
+const BucketDetail = lazy(() =>
+  import('./pages/BucketDetail').then((m) => ({ default: m.BucketDetail })),
+);
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -54,6 +57,7 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/services/category/:bucketSlug" element={<BucketDetail />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/about" element={<About />} />

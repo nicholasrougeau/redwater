@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { SpotlightCard } from '../components/SpotlightCard';
 import { SEO } from '../lib/seo';
-import { BUCKETS, SERVICES, getService, servicesInBucket } from '../data/services';
+import { BUCKETS, getService, servicesInBucket } from '../data/services';
 
 const FEATURED_SLUG = 'full-stack-agency-operator';
 
@@ -15,15 +15,14 @@ export const Services = () => {
     <div className="pt-32 pb-24">
       <SEO
         title="Services — Redwater Revenue"
-        description="The full Redwater Revenue services catalog: outreach, websites, custom automation, SEO, content, and research systems. Custom-scoped. Projects from $500 to $10k+."
+        description="The full Redwater Revenue services catalog: outreach, websites, custom automation, SEO, content, and research systems. Custom-scoped. Projects from $500 to $15k+."
         path="/services"
       />
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-20 max-w-3xl">
           <h1 className="mb-6 text-5xl font-bold text-zinc-900 md:text-7xl">What we build.</h1>
           <p className="text-xl text-zinc-500">
-            Seven buckets. {SERVICES.length} services. One operating system. We scope each project to the
-            outcome — not to a menu item.
+            Every revenue-facing system we build. Pick a piece — or wire the full stack.
           </p>
         </div>
 
@@ -49,7 +48,7 @@ export const Services = () => {
                   to={`/services/${featured.slug}`}
                   className="inline-flex items-center gap-2 rounded-full bg-brand-orange px-8 py-4 font-bold text-white transition-all hover:scale-105 hover:bg-brand-red"
                 >
-                  See the retainer
+                  See the system
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -104,11 +103,10 @@ export const Services = () => {
         {/* Pricing framing */}
         <div className="mt-32 rounded-3xl border border-zinc-100 bg-zinc-50 p-10 md:p-16 text-center">
           <h2 className="mb-4 text-3xl font-bold text-zinc-900 md:text-4xl">
-            Custom-scoped. Projects from $500 to $10k+.
+            Custom-scoped. Projects from $500 to $15k+.
           </h2>
           <p className="mx-auto mb-8 max-w-2xl text-lg text-zinc-500">
-            No menu pricing. We scope each engagement to the outcome and the surface area — from a
-            single skill build to a full-stack agency operator retainer.
+            No menu pricing. We scope each engagement to the outcome and the surface area — from a single skill build to a full-stack system retainer.
           </p>
           <Link
             to="/contact"

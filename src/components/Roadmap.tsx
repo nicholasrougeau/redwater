@@ -4,7 +4,7 @@ import { useRef } from "react";
 const roadmapItems = [
   {
     step: "01",
-    title: "Audit & Architecture",
+    title: "Assessment & Architecture",
     description: "We deep-dive into your current tech stack and workflows to identify bottlenecks and high-leverage automation opportunities.",
   },
   {

@@ -54,7 +54,7 @@ export const NewsletterSection = () => {
             </div>
             <h2 className="mb-4 text-4xl font-bold text-zinc-900">The Revenue Report</h2>
             <p className="text-xl text-zinc-500 leading-relaxed">
-              How we're using AI to grow businesses. No fluff, just working systems.
+              Stay up to date with how we're using AI to grow businesses. Follow along as we build it in public.
             </p>
           </div>
 

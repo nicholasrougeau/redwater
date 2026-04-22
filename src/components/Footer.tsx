@@ -12,7 +12,7 @@ export const Footer = () => {
               </span>
             </Link>
             <p className="max-w-md text-zinc-500 leading-relaxed">
-              AI operating systems for coaches, lawyers, consultants, and agencies. Based in South Louisiana, shipping for clients nationwide.
+              AI operating systems for local businesses, including coaches, lawyers, consultants, and agencies. Based in South Louisiana. Shipping for clients nationwide.
             </p>
           </div>
 
