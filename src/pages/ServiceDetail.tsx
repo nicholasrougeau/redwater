@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'motion/react';
 import {
   ArrowLeft,
   ArrowRight,
+  Check,
   Cpu,
   Layers,
   Mail,
@@ -44,12 +45,6 @@ const ROADMAP_STEPS: { title: string; desc: string }[] = [
   },
 ];
 
-const GENERIC_DELIVERABLES = [
-  'Spec doc + architecture diagram',
-  'Working system deployed to your stack',
-  'Handoff docs + 2-week stabilization',
-];
-
 export const ServiceDetail = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = slug ? getService(slug) : undefined;
@@ -85,12 +80,6 @@ export const ServiceDetail = () => {
   const BucketIcon = BUCKET_ICON[service.bucket] ?? Layers;
   const Icon = service.icon;
   const related = servicesInBucket(service.bucket).filter((s) => s.slug !== service.slug);
-
-  // Top 3 bullets, padded if fewer than 3
-  const bullets = [...service.deliverables.slice(0, 3)];
-  while (bullets.length < 3) {
-    bullets.push(GENERIC_DELIVERABLES[bullets.length] ?? 'Scoped to your stack');
-  }
 
   // Motion helpers — respect prefers-reduced-motion
   const fadeUp = reduceMotion
@@ -180,21 +169,21 @@ export const ServiceDetail = () => {
         </motion.div>
       </div>
 
-      {/* Section 3 — Two-column: 3 bullet cards + visual */}
+      {/* Section 3 — Two-column: highlight cards + visual */}
       <div className="mx-auto max-w-5xl px-6">
-        <section className="mb-24 grid items-start gap-16 lg:grid-cols-2">
-          {/* Left: 3 stacked bullet cards */}
+        <section className="mb-40 grid items-start gap-16 lg:grid-cols-2">
+          {/* Left: 3 highlight cards */}
           <div className="space-y-6">
-            {bullets.map((b, i) => (
+            {service.highlights.map((h, i) => (
               <motion.div
-                key={`${b}-${i}`}
+                key={`${h.label}-${i}`}
                 {...staggerUp(i)}
                 className="rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm"
               >
-                <div className="mb-3 text-5xl font-black text-brand-red">
-                  {String(i + 1).padStart(2, '0')}
+                <div className="mb-3 text-5xl font-black leading-none text-brand-red">
+                  {h.metric}
                 </div>
-                <p className="text-lg font-bold leading-snug text-zinc-800">{b}</p>
+                <p className="text-lg font-bold leading-snug text-zinc-800">{h.label}</p>
               </motion.div>
             ))}
           </div>
@@ -245,13 +234,13 @@ export const ServiceDetail = () => {
         </section>
       </div>
 
-      {/* Section 4 — Dark "What this looks like" */}
-      <section className="relative mt-24 bg-[#0F172A]">
-        <div
-          aria-hidden
-          className="absolute top-0 left-0 h-32 w-full origin-left -translate-y-1/2 -skew-y-3 bg-zinc-50"
-        />
-        <div className="relative mx-auto max-w-5xl px-6 pt-32 pb-28">
+      {/* Section 4 — Dark "What this looks like" with clean gradient transition */}
+      <div
+        aria-hidden
+        className="h-6 w-full bg-gradient-to-b from-zinc-50 to-[#0F172A]"
+      />
+      <section className="relative bg-[#0F172A]">
+        <div className="relative mx-auto max-w-5xl px-6 pt-24 pb-28">
           <motion.h2
             {...fadeUp}
             className="mb-12 text-4xl font-black leading-tight text-white lg:text-5xl"
@@ -269,9 +258,36 @@ export const ServiceDetail = () => {
             <h3 className="mb-4 text-2xl font-bold text-brand-red">
               {service.title} System
             </h3>
-            <p className="text-xl leading-relaxed text-zinc-600">{service.description}</p>
+            <p className="mb-6 text-xl leading-relaxed text-zinc-600">{service.hook}</p>
+            <p className="text-xl leading-relaxed text-zinc-600">{service.details}</p>
           </motion.div>
         </div>
+      </section>
+
+      {/* Section 4b — What's included (deliverables checklist) */}
+      <section className="mx-auto max-w-5xl px-6 py-24">
+        <motion.h2
+          {...fadeUp}
+          className="mb-4 text-4xl font-black text-zinc-900 lg:text-5xl"
+        >
+          What's included
+        </motion.h2>
+        <motion.p {...fadeUp} className="mb-12 max-w-2xl text-lg text-zinc-500">
+          Everything delivered inside this engagement — ready to run, documented, and yours to keep.
+        </motion.p>
+        <motion.ul {...fadeUp} className="grid gap-4 md:grid-cols-2">
+          {service.deliverables.map((d) => (
+            <li
+              key={d}
+              className="flex items-start gap-4 rounded-2xl border border-zinc-100 bg-white p-5 shadow-sm"
+            >
+              <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
+                <Check className="h-4 w-4" strokeWidth={3} />
+              </span>
+              <span className="text-base leading-snug text-zinc-700">{d}</span>
+            </li>
+          ))}
+        </motion.ul>
       </section>
 
       {/* Section 5 — How we build it roadmap */}

@@ -129,10 +129,13 @@ export const Navbar = () => {
                       {BUCKETS.map((bucket) => {
                         const Icon = BUCKET_ICON[bucket.slug] ?? Layers;
                         const featured = bucket.slug === 'bundled';
+                        const bucketHref = featured
+                          ? '/services/full-stack-agency-operator'
+                          : `/services/category/${bucket.slug}`;
                         return (
                           <li key={bucket.slug}>
                             <Link
-                              to={`/services/category/${bucket.slug}`}
+                              to={bucketHref}
                               className={`group flex items-center gap-4 px-5 py-4 transition-colors ${
                                 featured
                                   ? 'bg-brand-red/[0.03] hover:bg-brand-red/[0.06]'
@@ -308,7 +311,11 @@ export const Navbar = () => {
                                     >
                                       <li>
                                         <Link
-                                          to={`/services/category/${bucket.slug}`}
+                                          to={
+                                            bucket.slug === 'bundled'
+                                              ? '/services/full-stack-agency-operator'
+                                              : `/services/category/${bucket.slug}`
+                                          }
                                           className="block rounded-md px-3 py-2 text-xs font-bold uppercase tracking-wider text-brand-red hover:bg-brand-red/5"
                                           onClick={() => setMobileOpen(false)}
                                         >

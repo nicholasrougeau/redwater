@@ -59,14 +59,7 @@ export const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-100 bg-zinc-50/50 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-zinc-500">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-75"></span>
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-red"></span>
-              </span>
-              Now accepting new clients for Q2
-            </div>
-            <h1 className="mb-6 text-5xl font-bold leading-[1.1] text-zinc-900 md:text-7xl lg:text-8xl">
+            <h1 className="mb-6 text-4xl font-bold leading-[1.1] text-zinc-900 md:text-6xl lg:text-7xl">
               AI Systems for <span className="text-gradient">Local Businesses</span> and Professionals.
             </h1>
             <p className="mx-auto mb-10 max-w-2xl text-lg text-zinc-500 md:text-xl">
@@ -121,7 +114,7 @@ export const Home = () => {
             <div className="max-w-2xl">
               <h2 className="mb-4 text-4xl font-bold text-zinc-900 md:text-5xl">One system. Every piece your business needs.</h2>
               <p className="text-lg text-zinc-500">
-                Custom infrastructure that replaces manual work with code you own.
+                Custom infrastructure that replaces manual work with custom software and AI agents.
               </p>
             </div>
             <Link to="/services" className="group flex items-center gap-2 font-bold text-brand-red">
@@ -131,18 +124,24 @@ export const Home = () => {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {bucketSummaries.map((b) => (
-              <SpotlightCard key={b.slug}>
-                <h3 className="mb-3 text-xl font-bold text-zinc-900">{b.title}</h3>
-                <p className="mb-6 text-sm text-zinc-500 leading-relaxed">{b.blurb}</p>
-                <Link
-                  to={`/services/category/${b.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-bold text-brand-red transition-all hover:gap-3"
-                >
-                  See services <ArrowRight className="h-4 w-4" />
-                </Link>
-              </SpotlightCard>
-            ))}
+            {bucketSummaries.map((b) => {
+              const href =
+                b.slug === 'bundled'
+                  ? '/services/full-stack-agency-operator'
+                  : `/services/category/${b.slug}`;
+              return (
+                <SpotlightCard key={b.slug}>
+                  <h3 className="mb-3 text-xl font-bold text-zinc-900">{b.title}</h3>
+                  <p className="mb-6 text-sm text-zinc-500 leading-relaxed">{b.blurb}</p>
+                  <Link
+                    to={href}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-brand-red transition-all hover:gap-3"
+                  >
+                    See services <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </SpotlightCard>
+              );
+            })}
           </div>
         </div>
       </section>

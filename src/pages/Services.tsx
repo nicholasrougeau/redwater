@@ -45,7 +45,7 @@ export const Services = () => {
                   ))}
                 </ul>
                 <Link
-                  to={`/services/${featured.slug}`}
+                  to="/services/full-stack-agency-operator"
                   className="inline-flex items-center gap-2 rounded-full bg-brand-orange px-8 py-4 font-bold text-white transition-all hover:scale-105 hover:bg-brand-red"
                 >
                   See the system
@@ -58,7 +58,7 @@ export const Services = () => {
 
         {/* Buckets */}
         <div className="space-y-24">
-          {nonBundledBuckets.map((bucket, i) => {
+          {nonBundledBuckets.map((bucket) => {
             const services = servicesInBucket(bucket.slug);
             return (
               <motion.section
@@ -69,16 +69,11 @@ export const Services = () => {
                 viewport={{ once: true, margin: '-80px' }}
                 className="scroll-mt-32"
               >
-                <div className="mb-10 flex items-end gap-6 border-b border-zinc-100 pb-6">
-                  <div className="font-display text-6xl font-black text-zinc-100 leading-none">
-                    {String(i + 2).padStart(2, '0')}
-                  </div>
-                  <div>
-                    <h2 className="mb-2 text-3xl font-bold text-zinc-900 md:text-4xl">
-                      {bucket.title}
-                    </h2>
-                    <p className="text-lg text-zinc-500">{bucket.intro}</p>
-                  </div>
+                <div className="mb-10 border-b border-zinc-100 pb-6">
+                  <h2 className="mb-2 text-3xl font-bold text-zinc-900 md:text-4xl">
+                    {bucket.title}
+                  </h2>
+                  <p className="text-lg text-zinc-500">{bucket.intro}</p>
                 </div>
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {services.map((s) => (

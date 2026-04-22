@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { SEO } from '../lib/seo';
@@ -6,6 +6,11 @@ import { getBucket, servicesInBucket } from '../data/services';
 
 export const BucketDetail = () => {
   const { bucketSlug } = useParams<{ bucketSlug: string }>();
+
+  if (bucketSlug === 'bundled') {
+    return <Navigate to="/services/full-stack-agency-operator" replace />;
+  }
+
   const bucket = bucketSlug ? getBucket(bucketSlug) : undefined;
 
   if (!bucket) {
