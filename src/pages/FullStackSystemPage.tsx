@@ -147,11 +147,6 @@ const COMPARISON_ROWS: { label: string; contractors: string; fullstack: string }
     fullstack: 'One operator, one Slack channel',
   },
   {
-    label: 'Tool + vendor sprawl',
-    contractors: 'Zapier, 3 SaaS subs, duct tape',
-    fullstack: 'Infra you own on Supabase + Vercel',
-  },
-  {
     label: 'Handoffs between systems',
     contractors: 'Your team fills the gaps',
     fullstack: 'Systems talk to each other natively',
@@ -163,7 +158,7 @@ const COMPARISON_ROWS: { label: string; contractors: string; fullstack: string }
   },
   {
     label: 'Monthly cost',
-    contractors: '$8k–$15k across vendors + your time',
+    contractors: '$8,000–$15,000 per month',
     fullstack: 'One retainer, starts at $5k/mo',
   },
   {
@@ -175,7 +170,7 @@ const COMPARISON_ROWS: { label: string; contractors: string; fullstack: string }
 
 export const FullStackSystemPage = () => {
   const reduceMotion = useReducedMotion();
-  const service = getService('full-stack-agency-operator');
+  const service = getService('full-stack-system');
 
   const fadeUp = reduceMotion
     ? {}
@@ -245,8 +240,8 @@ export const FullStackSystemPage = () => {
             Full-Stack <span className="text-gradient">System</span>
           </h1>
           <p className="mx-auto mb-10 max-w-3xl text-xl leading-relaxed text-zinc-500 md:text-2xl">
-            One operator running outreach, CRM, content, reporting, and onboarding — all under one
-            monthly retainer.
+            One unified system for outreach, CRM, content, reporting, and onboarding — all on one
+            retainer.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link
@@ -275,7 +270,7 @@ export const FullStackSystemPage = () => {
               What you stop worrying about
             </div>
             <h2 className="text-4xl font-black leading-tight text-zinc-900 md:text-5xl">
-              The six things that silently eat your week.
+              6 things that eat your week.
             </h2>
           </motion.div>
 

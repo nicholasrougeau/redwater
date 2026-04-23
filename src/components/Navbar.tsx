@@ -130,7 +130,7 @@ export const Navbar = () => {
                         const Icon = BUCKET_ICON[bucket.slug] ?? Layers;
                         const featured = bucket.slug === 'bundled';
                         const bucketHref = featured
-                          ? '/services/full-stack-agency-operator'
+                          ? '/services/full-stack-system'
                           : `/services/category/${bucket.slug}`;
                         return (
                           <li key={bucket.slug}>
@@ -313,7 +313,7 @@ export const Navbar = () => {
                                         <Link
                                           to={
                                             bucket.slug === 'bundled'
-                                              ? '/services/full-stack-agency-operator'
+                                              ? '/services/full-stack-system'
                                               : `/services/category/${bucket.slug}`
                                           }
                                           className="block rounded-md px-3 py-2 text-xs font-bold uppercase tracking-wider text-brand-red hover:bg-brand-red/5"

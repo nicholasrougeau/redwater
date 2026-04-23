@@ -171,7 +171,7 @@ export const ServiceDetail = () => {
 
       {/* Section 3 — Two-column: highlight cards + visual */}
       <div className="mx-auto max-w-5xl px-6">
-        <section className="mb-40 grid items-start gap-16 lg:grid-cols-2">
+        <section className="mb-32 grid items-start gap-16 md:mb-40 lg:grid-cols-2">
           {/* Left: 3 highlight cards */}
           <div className="space-y-6">
             {service.highlights.map((h, i) => (
@@ -234,13 +234,12 @@ export const ServiceDetail = () => {
         </section>
       </div>
 
-      {/* Section 4 — Dark "What this looks like" with clean gradient transition */}
-      <div
-        aria-hidden
-        className="h-6 w-full bg-gradient-to-b from-zinc-50 to-[#0F172A]"
-      />
-      <section className="relative bg-[#0F172A]">
-        <div className="relative mx-auto max-w-5xl px-6 pt-24 pb-28">
+      {/* Section 4 — Dark "What this looks like" with diagonal top edge */}
+      <section
+        className="relative bg-[#0F172A]"
+        style={{ clipPath: 'polygon(0 48px, 100% 0, 100% 100%, 0 100%)' }}
+      >
+        <div className="relative mx-auto max-w-5xl px-6 pt-24 pb-28 md:pt-32">
           <motion.h2
             {...fadeUp}
             className="mb-12 text-4xl font-black leading-tight text-white lg:text-5xl"

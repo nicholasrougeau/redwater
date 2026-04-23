@@ -5,7 +5,7 @@ import { SpotlightCard } from '../components/SpotlightCard';
 import { SEO } from '../lib/seo';
 import { BUCKETS, getService, servicesInBucket } from '../data/services';
 
-const FEATURED_SLUG = 'full-stack-agency-operator';
+const FEATURED_SLUG = 'full-stack-system';
 
 export const Services = () => {
   const featured = getService(FEATURED_SLUG);
@@ -45,7 +45,7 @@ export const Services = () => {
                   ))}
                 </ul>
                 <Link
-                  to="/services/full-stack-agency-operator"
+                  to="/services/full-stack-system"
                   className="inline-flex items-center gap-2 rounded-full bg-brand-orange px-8 py-4 font-bold text-white transition-all hover:scale-105 hover:bg-brand-red"
                 >
                   See the system

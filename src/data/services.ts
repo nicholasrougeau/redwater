@@ -71,7 +71,7 @@ export const BUCKETS: Bucket[] = [
 export const SERVICES: Service[] = [
   // Bundled / Retainer
   {
-    slug: 'full-stack-agency-operator',
+    slug: 'full-stack-system',
     bucket: 'bundled',
     title: 'Full-Stack System',
     tagline: 'Bundled retainer',
@@ -179,7 +179,7 @@ export const SERVICES: Service[] = [
     details:
       'Thread-aware agent integrated with your email stack. Cadence tuned to your sales cycle, voice matched to your past replies, dashboard showing which leads are waiting on you versus waiting on them.',
     deliverables: [
-      'Thread-aware follow-up agent tied to your Gmail',
+      'Thread-aware follow-up agent tied to your email (Gmail / Outlook / any stack)',
       'Sequence cadence tuned to your sales cycle',
       'Voice-matched drafts for each reply',
       'Dashboard showing which leads are waiting on you',
@@ -263,13 +263,13 @@ export const SERVICES: Service[] = [
       { metric: '100%', label: 'Built around your offer, not a template' },
     ],
     hook:
-      "Your website is the first thing buyers judge. A template site tells them you're average. We ship a custom React + Tailwind site structured around your offer and ICP, deployed on infra you own, wired to forms and analytics from day one — so leads convert the minute they land.",
+      "Your website is the first thing buyers judge. A template site tells them you're average. We build a custom site structured around your offer and ICP, deployed on secure hosting you own, wired to forms and analytics from day one — so leads convert the minute they land.",
     details:
-      "We design and build with React, Vite, and Tailwind. Deployed to Netlify or GitHub Pages on your domain with a contact form, analytics, and sitemap configured out of the box. You own the code and the DNS.",
+      "We design and build with modern tooling (React, Vite, Tailwind). Deployed on secure hosting you own, on your domain, with a contact form, analytics, and sitemap configured out of the box. You own the code and the DNS.",
     deliverables: [
       'Custom design + build (React / Vite / Tailwind)',
       'Copy structured around your offer and ICP',
-      'Deployed to Netlify or GitHub Pages on your domain',
+      'Deployed on secure hosting you own, on your domain',
       'Contact form + analytics + sitemap out of the box',
     ],
     idealFor: [
@@ -321,11 +321,11 @@ export const SERVICES: Service[] = [
     hook:
       "Clients churn when they forget the value. We ship an animated, branded progress page per client every week — one link they actually open, forward to their boss, and remember why they pay you.",
     details:
-      'Per-client branded template, weekly update flow (paste in the wins → site updates), PDF snapshot, Gmail draft to the client, and a Slack ping to you when the report is ready.',
+      'Per-client branded template, weekly update flow (paste in the wins → site updates), PDF snapshot, email draft to the client, and a Slack ping to you when the report is ready.',
     deliverables: [
       'Per-client branded report template',
       'Weekly update flow: pastes in → site updates',
-      'PDF snapshot + Gmail draft to client',
+      'PDF snapshot + email draft to client',
       'Slack ping to you when report is ready',
     ],
     idealFor: [
@@ -369,27 +369,27 @@ export const SERVICES: Service[] = [
     bucket: 'custom-automation',
     title: 'Claude Code Consulting & Team Onboarding',
     tagline: 'Adopt Claude Code',
-    outcome: 'Your engineers ship 3–5x faster with Claude Code — guardrails, skills, and team training included.',
+    outcome: 'Your team is 3–5x more productive by teaching Claude Code to handle the repetitive admin work.',
     icon: Code2,
     highlights: [
-      { metric: '3–5×', label: 'Faster shipping inside weeks' },
-      { metric: '0', label: 'Cowboy commits or silent regressions' },
-      { metric: '1 team', label: 'All on the same playbook' },
+      { metric: '3–5×', label: 'Team productivity on repetitive work' },
+      { metric: 'Days', label: 'From first prompt to daily habit' },
+      { metric: '0', label: 'Coding required from you' },
     ],
     hook:
-      "Your team already knows AI is a force multiplier. The problem is adopting it safely. We audit how your engineers ship, set up Claude Code with the right skills, hooks, and permissions, and train the team — so velocity goes up and review burden goes down.",
+      "Most of your team's week disappears into repetitive admin: data entry, research, inbox triage, report writing. Claude Code handles it once we teach it the way your business runs. Your team spends their time on the work that actually moves the needle.",
     details:
-      'Claude Code installed across the team, skills and hooks configured for your repo, internal playbooks for safe usage, and training sessions plus office hours so engineers actually use it.',
+      'We assess how your team fulfills work, set up Claude Code (and the supporting agents) with the right skills, hooks, and permissions, and train the team to run it for their specific workflows. No code experience needed on your side.',
     deliverables: [
-      'Claude Code setup across your team',
-      'Skills + hooks + permissions configured',
-      'Internal playbooks for safe usage',
+      'Claude Code set up across your team',
+      'Skills, hooks, and permissions tailored to your workflows',
+      'Internal playbooks for safe, repeatable use',
       'Team training sessions + office hours',
     ],
     idealFor: [
-      'Engineering teams of 3–30 adopting AI tooling',
-      'CTOs worried about review burden and silent regressions',
-      'Founders who want velocity without chaos',
+      'Teams drowning in repetitive admin and back-office work',
+      'Owners who want to get more out of each team member without adding headcount',
+      'Anyone whose staff spends more time on data entry than on the work they were hired for',
     ],
   },
   {
@@ -430,17 +430,17 @@ export const SERVICES: Service[] = [
     highlights: [
       { metric: '1', label: 'Pipeline, your exact stages' },
       { metric: '$0', label: 'Per-seat pricing traps' },
-      { metric: 'Owned', label: 'Your Supabase + Vercel, your data' },
+      { metric: 'Owned', label: 'Your data on your infrastructure — not HubSpot' },
     ],
     hook:
-      "HubSpot forces you into its model of how sales work. We build a CRM around how you actually sell — custom stages, fields, and automations — running on Supabase and a dashboard you own. No seat fees, no pricing walls, no vendor lock-in.",
+      "A CRM only earns its keep if it helps you make money — not just track things. HubSpot forces you into its model of how sales work. We build a CRM around how you actually close: custom stages, fields, and automations that surface winning deals and stop live ones from slipping, on a dashboard you own. No seat fees, no pricing walls, no vendor lock-in.",
     details:
-      'Schema designed around your pipeline, inline-editable dashboard UI, automated stage transitions and reminders, deployed to Vercel and Supabase you control. Migration from HubSpot / Pipedrive / Notion included.',
+      'Schema designed around your pipeline, inline-editable dashboard UI, automated stage transitions and reminders so no lead gets left behind, deployed on your infrastructure. Migration from HubSpot / Pipedrive / Notion included.',
     deliverables: [
-      'Schema designed around your pipeline',
-      'Inline-editable dashboard UI',
-      'Automated stage transitions + reminders',
-      'Deploy on Vercel / Supabase you own',
+      "See where you're winning at a glance — dashboard tuned to your pipeline",
+      'No lead gets left behind — automated reminders and stage transitions',
+      'Custom schema built around how you actually sell',
+      'Deploy on infrastructure you own — your data, not a vendor lock-in',
     ],
     idealFor: [
       'Agencies running a non-standard sales process',
@@ -491,12 +491,12 @@ export const SERVICES: Service[] = [
     hook:
       "Reports are what keep renewals alive and what nobody wants to write. We automate the whole loop — pull data from your stack, draft a narrative in your voice, brand it, ship it — so reports never slip and your team stops writing on Friday at 6pm.",
     details:
-      "Data pulls from Google Analytics, Ads, CRM, and any other source you track. Auto-drafted weekly narrative, branded template, Gmail draft with approval flow, and Slack ping when ready to send.",
+      "Data pulls from Google Analytics, Ads, CRM, and any other source you track. Auto-drafted weekly narrative, branded template, email draft with approval flow, and Slack ping when ready to send.",
     deliverables: [
       'Data pulls from your stack (GA, Ads, CRM, etc.)',
       'Auto-drafted weekly narrative in your voice',
       'Branded report template',
-      'Gmail draft + Slack approval flow',
+      'Email draft + Slack approval flow',
     ],
     idealFor: [
       'Agencies on monthly retainers with 5+ clients',
@@ -517,12 +517,12 @@ export const SERVICES: Service[] = [
       { metric: 'Your voice', label: 'Trained on past newsletters' },
     ],
     hook:
-      "The newsletter is the most durable channel you own — and the one that always falls off the calendar first. We pick a source (podcast, YouTube, Slack), auto-draft the newsletter in your voice, load it in ConvertKit / Beehiiv, and ping you for approval. You edit. It sends.",
+      "The newsletter is the most durable channel you own — and the one that always falls off the calendar first. We do the research, auto-draft the newsletter in your voice, load it into Kit or Beehiiv, and ping you for approval. You edit. It sends.",
     details:
-      'Source-to-draft pipeline tied to your content, drafts loaded into ConvertKit / Beehiiv / MailerLite, voice-matched writing rules tuned on your past issues, and a weekly analytics loop so you see what hooks landed.',
+      "We do the research, auto-draft the newsletter in your voice, load it into Kit or Beehiiv, and ping you for approval. You edit. It sends.",
     deliverables: [
-      'Source-to-draft pipeline',
-      'Drafts loaded into ConvertKit / Beehiiv / etc.',
+      'Research + draft pipeline tuned to your brand',
+      'Drafts loaded into Kit / Beehiiv / MailerLite',
       'Voice-matched writing rules',
       'Weekly schedule + analytics loop',
     ],
@@ -682,21 +682,21 @@ export const SERVICES: Service[] = [
     bucket: 'content-video',
     title: 'Content Repurposing Pipeline',
     tagline: '1 video → 30 posts',
-    outcome: 'One transcript in — blog, newsletter, 10–15 social posts with unique images, all scheduled. Pennies per run.',
+    outcome: 'One input. Blog, newsletter, 10–15 social posts with unique images — all in your voice.',
     icon: Repeat,
     highlights: [
-      { metric: '1 → 30+', label: 'Pieces of content per recording' },
-      { metric: '$0.50', label: 'Average cost per full run' },
-      { metric: '0', label: 'Overlap — no post on two platforms same day' },
+      { metric: '1 → 30+', label: 'Input → pieces of content' },
+      { metric: '~50¢', label: 'Average cost per full run' },
+      { metric: '0', label: 'Posts on two platforms the same day' },
     ],
     hook:
-      'One longform recording becomes a blog post, a newsletter, and 10–15 platform-native social posts — each with its own image, written in your voice, scheduled to avoid overlap. One afternoon of recording turns into a month of content.',
+      "One afternoon of drafting turns into a month of content. Record once, and the pipeline turns it into a blog post, a newsletter, and 10–15 platform-native social posts — each with its own image, in your voice, scheduled to avoid overlap.",
     details:
-      'Transcript-to-everything pipeline with a 70/20/10 hook ratio across posts, unique AI-generated image per post, Facebook / LinkedIn / Instagram captions, and Latin-square scheduling so no post hits two platforms the same day.',
+      'Transcript-to-everything pipeline with a unique AI-generated image per post, platform-native captions for Facebook / LinkedIn / Instagram, and Latin-square scheduling so no post hits two platforms the same day.',
     deliverables: [
       'Transcript → blog + newsletter + 10–15 social posts',
       'Unique image per post',
-      'Platform captions (FB / LinkedIn / IG)',
+      'Unique platform captions for each post',
       'Latin-square scheduling across platforms',
     ],
     idealFor: [
@@ -851,28 +851,28 @@ export const SERVICES: Service[] = [
     slug: 'literature-deep-research',
     bucket: 'research-intelligence',
     title: 'Automated Deep Research',
-    tagline: 'Research agents, not a research hire',
-    outcome: 'Academic + web + forum synthesis into a cited brief — research you can act on, not a research bill.',
+    tagline: 'Live market listening',
+    outcome: "Ear-to-the-ground research agents that surface what your customers are actually saying — so your content lands on trends instead of guesses.",
     icon: BookOpen,
     highlights: [
-      { metric: '1 brief', label: 'Synthesized, cited, ready to use' },
-      { metric: 'Multi-source', label: 'PubMed, web, Reddit, niche forums' },
-      { metric: '$0 / hour', label: 'No research retainer billed' },
+      { metric: 'Daily', label: 'Trend + complaint scan' },
+      { metric: '100s', label: 'Of live customer signals synthesized' },
+      { metric: '0', label: 'Hours of manual Reddit/forum scrolling' },
     ],
     hook:
-      "Deep research as an agent, not a service. Academic papers, web search, niche forums — all synthesized into a single cited brief you can use to make a decision, write a keynote, or launch a product. Runs automatically, not by the hour.",
+      "The best content riffs on what your customers are already saying in public. Deep research agents watch Reddit, Google Trends, YouTube comments, and niche forums — then synthesize what's trending, what's breaking, and what customers are actively complaining about. You post on the wave, not after it.",
     details:
-      'PubMed and academic search, web and forum and Reddit synthesis, cited brief with action items, and an optional multi-agent review pass for rigor on high-stakes work.',
+      "Agents run daily across the sources that matter to your niche. Cited briefs land in your inbox — ready to turn into a blog post, a video hook, or a sales email. Academic + web search layered in when the question calls for depth.",
     deliverables: [
-      'PubMed / academic search',
-      'Web + forum + Reddit synthesis',
-      'Cited brief with action items',
-      'Optional multi-agent review for rigor',
+      'Daily trend + complaint scan across Reddit, Google Trends, YouTube comments, niche forums',
+      "Cited brief with the week's top opportunities + hooks",
+      'Optional academic / PubMed layer when depth is needed',
+      'Export directly into blog or content pipeline',
     ],
     idealFor: [
-      'Creators writing at depth',
-      'Founders entering new markets',
-      'Consultants pitching specialized engagements',
+      'Local businesses whose content keeps missing what customers actually care about',
+      'Founders entering new markets who need the ear-to-the-ground view fast',
+      'Operators tired of guessing which hooks will land',
     ],
   },
   {
@@ -908,7 +908,7 @@ export const SERVICES: Service[] = [
     bucket: 'research-intelligence',
     title: 'Cross-Niche Content Research',
     tagline: 'Steal the hook, keep the niche',
-    outcome: 'Mine adjacent niches for hooks and structures — bring transferable patterns back before your competitors do.',
+    outcome: 'Read adjacent niches for hooks and structures — and bring transferable patterns back before your competitors do.',
     icon: Compass,
     highlights: [
       { metric: '6 months', label: 'Ahead of your direct niche' },
@@ -926,9 +926,9 @@ export const SERVICES: Service[] = [
       'Weekly transferable-pattern digest',
     ],
     idealFor: [
-      'Creators stuck in one niche',
+      "Founders whose content isn't growing",
       'Agencies needing fresh content angles',
-      'Founders whose content looks like everyone else',
+      'Creators stuck in one niche',
     ],
   },
   {
@@ -963,20 +963,20 @@ export const SERVICES: Service[] = [
     slug: 'invoice-data-extraction',
     bucket: 'research-intelligence',
     title: 'Invoice Data Extraction',
-    tagline: 'PDF invoices → JSON',
-    outcome: "Drop PDF invoices in — structured JSON out. Vendor, amount, date, line items auto-pushed to your books.",
+    tagline: 'Invoices to organized records',
+    outcome: "Invoice PDFs become structured data — auto-pushed into your CRM or accounting tool.",
     icon: FileSearch,
     highlights: [
-      { metric: 'PDF → JSON', label: 'Structured in seconds' },
-      { metric: '0', label: 'Hours of manual data entry' },
-      { metric: '4 fields', label: 'Vendor, amount, date, line items' },
+      { metric: '0 hrs', label: 'Of manual data entry' },
+      { metric: '100%', label: 'Accuracy across all captured fields' },
+      { metric: 'Auto', label: 'Pushes to your CRM or accounting tool' },
     ],
     hook:
-      "Bookkeeping by hand is expensive and error-prone. Drop a folder of invoice PDFs in and the pipeline extracts structured data — vendor, amount, date, line items, tax — and pushes it straight to your CRM or accounting tool. No manual entry, no shoebox.",
+      "Bookkeeping by hand is expensive and error-prone. Drop a folder of invoice PDFs in and the pipeline turns them into organized records — vendor, amount, date, line items, tax — and pushes them straight to your CRM or accounting tool. No manual entry, no shoebox.",
     details:
-      'PDF to structured JSON pipeline, vendor and line-item extraction, auto-updates to CRM / QuickBooks / Xero / Sheets, and error-flagging on unreadable docs so nothing slips.',
+      'PDF to structured records pipeline, vendor and line-item extraction, auto-updates to CRM / QuickBooks / Xero / Sheets, and error-flagging on unreadable docs so nothing slips.',
     deliverables: [
-      'PDF → structured JSON pipeline',
+      'PDF to structured records pipeline',
       'Vendor + line-item extraction',
       'Auto-updates to CRM / QuickBooks / Xero / Sheets',
       'Error-flagging on unreadable docs',

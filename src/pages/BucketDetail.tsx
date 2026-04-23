@@ -8,7 +8,7 @@ export const BucketDetail = () => {
   const { bucketSlug } = useParams<{ bucketSlug: string }>();
 
   if (bucketSlug === 'bundled') {
-    return <Navigate to="/services/full-stack-agency-operator" replace />;
+    return <Navigate to="/services/full-stack-system" replace />;
   }
 
   const bucket = bucketSlug ? getBucket(bucketSlug) : undefined;

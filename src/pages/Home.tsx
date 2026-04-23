@@ -127,7 +127,7 @@ export const Home = () => {
             {bucketSummaries.map((b) => {
               const href =
                 b.slug === 'bundled'
-                  ? '/services/full-stack-agency-operator'
+                  ? '/services/full-stack-system'
                   : `/services/category/${b.slug}`;
               return (
                 <SpotlightCard key={b.slug}>
