@@ -2,56 +2,192 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://redwaterrev.com/</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-04-16</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://redwaterrev.com/services/functional-website</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://redwaterrev.com/services</loc>
+    <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://redwaterrev.com/services/missed-call-text-back</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://redwaterrev.com/case-studies</loc>
+    <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://redwaterrev.com/services/all-in-one-inbox</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://redwaterrev.com/about</loc>
+    <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://redwaterrev.com/services/business-phone</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://redwaterrev.com/contact</loc>
+    <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://redwaterrev.com/services/local-seo</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://redwaterrev.com/services/full-stack-system</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://redwaterrev.com/services/review-funnel</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://redwaterrev.com/services/cold-email-infrastructure</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://redwaterrev.com/services/one-click-marketing</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://redwaterrev.com/services/lead-scraping-enrichment</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://redwaterrev.com/services/lead-follow-up</loc>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://redwaterrev.com/services/follow-up-nurture</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/ai-inbox-auto-reply</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/linkedin-dm-automation</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/full-website-build</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/animated-proposals</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/animated-client-progress-reports</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/pitch-deck-pptx</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/claude-code-consulting</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/custom-claude-skills</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/custom-crm-build</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/client-onboarding-automation</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/client-reporting-automation</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/newsletter-sequences</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/blog-automation</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/seo-meta-automation</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/content-repurposing-pipeline</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/custom-analytics-dashboard</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/youtube-shorts-automation</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/thumbnail-generation</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/auto-scheduling</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/ai-image-generation</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/literature-deep-research</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/youtube-competitor-tracking</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/multi-agent-consensus</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/cross-niche-content-research</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/x-twitter-trend-monitoring</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/video-to-action</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/invoice-data-extraction</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/inbox-triage-labeling</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://redwaterrev.com/services/meeting-notes-action-items</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
