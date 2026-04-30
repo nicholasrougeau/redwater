@@ -26,6 +26,18 @@
     <meta name="twitter:image" content="https://redwaterrev.com/og-default.png" />
 
     <script defer data-domain="redwaterrev.com" src="https://plausible.io/js/script.js"></script>
+
+    <script type="text/javascript">
+      // SPA GitHub Pages — restore deep-link path stashed by 404.html.
+      // Pair script for public/404.html. https://github.com/rafgraph/spa-github-pages
+      (function () {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
