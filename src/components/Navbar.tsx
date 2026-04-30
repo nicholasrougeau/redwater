@@ -202,6 +202,12 @@ export const Navbar = () => {
             Case Studies
           </Link>
           <Link
+            to="/learn"
+            className="text-sm font-medium text-zinc-600 transition-colors hover:text-brand-red"
+          >
+            Learn
+          </Link>
+          <Link
             to="/about"
             className="text-sm font-medium text-zinc-600 transition-colors hover:text-brand-red"
           >
@@ -356,6 +362,15 @@ export const Navbar = () => {
                     onClick={() => setMobileOpen(false)}
                   >
                     Case Studies
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/learn"
+                    className="block rounded-lg px-3 py-3 text-base font-semibold text-zinc-900 hover:bg-zinc-50"
+                    onClick={() => setMobileOpen(false)}
+                  >
+                    Learn
                   </Link>
                 </li>
                 <li>

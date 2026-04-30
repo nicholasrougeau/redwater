@@ -20,6 +20,10 @@ const BucketDetail = lazy(() =>
 const FullStackSystemPage = lazy(() =>
   import('./pages/FullStackSystemPage').then((m) => ({ default: m.FullStackSystemPage })),
 );
+const Learn = lazy(() => import('./pages/Learn').then((m) => ({ default: m.Learn })));
+const LakeCharles = lazy(() =>
+  import('./pages/LakeCharles').then((m) => ({ default: m.LakeCharles })),
+);
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -65,6 +69,8 @@ export default function App() {
               <Route path="/services/full-stack-agency-operator" element={<FullStackSystemPage />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/learn" element={<Learn />} />
+              <Route path="/lake-charles" element={<LakeCharles />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>

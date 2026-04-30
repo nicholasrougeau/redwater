@@ -28,9 +28,10 @@ export interface SEOProps {
   path: string;
   ogImage?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
 }
 
-export const SEO = ({ title, description, path, ogImage, jsonLd }: SEOProps) => {
+export const SEO = ({ title, description, path, ogImage, jsonLd, noindex }: SEOProps) => {
   const canonical = `${SITE_URL}${path}`;
   const image = ogImage ?? DEFAULT_OG;
   const absoluteImage = image.startsWith('http') ? image : `${SITE_URL}${image}`;
@@ -40,6 +41,7 @@ export const SEO = ({ title, description, path, ogImage, jsonLd }: SEOProps) => 
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {noindex && <meta name="robots" content="noindex,nofollow" />}
       <link rel="canonical" href={canonical} />
 
       <meta property="og:title" content={title} />

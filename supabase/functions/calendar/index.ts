@@ -23,15 +23,41 @@ import {
 } from '../_shared/google.ts';
 import { checkAndIncrement } from '../_shared/rate-limit.ts';
 
-// Availability config — edit these constants to change scheduling behavior.
+// Shared availability config — edit these constants to change scheduling behavior.
 const CONFIG = {
   timezone: 'America/Chicago',
   businessHours: { startHour: 9, endHour: 17 },
   businessDays: [1, 2, 3, 4, 5], // Mon–Fri (Sunday=0 in UTC day-of-week; see note in getCtDayOfWeek)
-  slotMinutes: 30,
-  bufferMinutes: 15,
-  minNoticeHours: 24,
 };
+
+// Per-meeting-type config. Default kind is 'audit-30'.
+type MeetingKind = 'audit-30' | 'intro-15';
+interface KindConfig {
+  slotMinutes: number;
+  bufferMinutes: number;
+  minNoticeHours: number;
+  summary: string;
+  descriptionSuffix: string;
+}
+const KIND_CONFIG: Record<MeetingKind, KindConfig> = {
+  'audit-30': {
+    slotMinutes: 30,
+    bufferMinutes: 15,
+    minNoticeHours: 24,
+    summary: 'Strategy Call',
+    descriptionSuffix: '(booked from redwaterrev.com)',
+  },
+  'intro-15': {
+    slotMinutes: 15,
+    bufferMinutes: 10,
+    minNoticeHours: 12,
+    summary: 'Quick Intro Call',
+    descriptionSuffix: '(15-min intro — booked from redwaterrev.com)',
+  },
+};
+function resolveKind(raw: string | null | undefined): MeetingKind {
+  return raw === 'intro-15' ? 'intro-15' : 'audit-30';
+}
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -96,20 +122,21 @@ function overlapsBusy(
   });
 }
 
-function generateCandidateSlots(fromISO: string, toISO: string): Date[] {
+function generateCandidateSlots(fromISO: string, toISO: string, kind: MeetingKind): Date[] {
+  const cfg = KIND_CONFIG[kind];
   const now = Date.now();
-  const minStart = now + CONFIG.minNoticeHours * 3600_000;
+  const minStart = now + cfg.minNoticeHours * 3600_000;
   const from = new Date(fromISO);
   const to = new Date(toISO);
   const slots: Date[] = [];
-  // Step minute-by-30 in UTC; convert each candidate to CT to check business hours/days.
-  const stepMs = CONFIG.slotMinutes * 60_000;
+  // Step in UTC by slot duration; convert each candidate to CT for business-hours check.
+  const stepMs = cfg.slotMinutes * 60_000;
   let cursor = new Date(Math.ceil(from.getTime() / stepMs) * stepMs);
   while (cursor.getTime() < to.getTime()) {
     if (cursor.getTime() >= minStart) {
       const ct = toCtParts(cursor);
       if (CONFIG.businessDays.includes(ct.dow)) {
-        const endHour = ct.hour + (ct.minute + CONFIG.slotMinutes) / 60;
+        const endHour = ct.hour + (ct.minute + cfg.slotMinutes) / 60;
         if (
           ct.hour >= CONFIG.businessHours.startHour &&
           endHour <= CONFIG.businessHours.endHour
@@ -127,14 +154,16 @@ async function handleSlots(req: Request): Promise<Response> {
   const url = new URL(req.url);
   const from = url.searchParams.get('from');
   const to = url.searchParams.get('to');
+  const kind = resolveKind(url.searchParams.get('kind'));
+  const cfg = KIND_CONFIG[kind];
   if (!from || !to) return jsonResponse({ error: 'Missing from/to' }, 400);
   const calendarId = Deno.env.get('GOOGLE_CALENDAR_ID') ?? 'primary';
   const accessToken = await getAccessToken();
   const busy = await freeBusy(accessToken, calendarId, from, to);
-  const candidates = generateCandidateSlots(from, to);
+  const candidates = generateCandidateSlots(from, to, kind);
   const open = candidates.filter((slot) => {
-    const end = new Date(slot.getTime() + CONFIG.slotMinutes * 60_000);
-    return !overlapsBusy(slot, end, CONFIG.bufferMinutes, busy);
+    const end = new Date(slot.getTime() + cfg.slotMinutes * 60_000);
+    return !overlapsBusy(slot, end, cfg.bufferMinutes, busy);
   });
   return jsonResponse({ slots: open.map((d) => d.toISOString()) });
 }
@@ -147,6 +176,8 @@ interface BookingBody {
   notes?: string;
   website?: string;
   loaded_at?: number;
+  kind?: string;
+  source?: string;
 }
 
 function dummyBookingResponse(body: BookingBody): Response {
@@ -179,7 +210,9 @@ async function handleBook(req: Request): Promise<Response> {
   } catch {
     return jsonResponse({ error: 'Invalid JSON' }, 400);
   }
-  const { slot, name, email, industry, notes, website, loaded_at } = body;
+  const { slot, name, email, industry, notes, website, loaded_at, kind: rawKind, source } = body;
+  const kind = resolveKind(rawKind ?? null);
+  const cfg = KIND_CONFIG[kind];
 
   // Silent bot trap — dummy success, don't hint at rejection
   const tooFast = typeof loaded_at === 'number' && Date.now() - loaded_at < 2000;
@@ -193,7 +226,7 @@ async function handleBook(req: Request): Promise<Response> {
 
   const slotStart = new Date(slot);
   if (isNaN(slotStart.getTime())) return jsonResponse({ error: 'Invalid slot' }, 400);
-  const slotEnd = new Date(slotStart.getTime() + CONFIG.slotMinutes * 60_000);
+  const slotEnd = new Date(slotStart.getTime() + cfg.slotMinutes * 60_000);
 
   // Supabase admin client
   const supabaseUrl = Deno.env.get('SUPABASE_URL');
@@ -217,14 +250,14 @@ async function handleBook(req: Request): Promise<Response> {
 
   // Re-check availability
   const busy = await freeBusy(accessToken, calendarId, slotStart.toISOString(), slotEnd.toISOString());
-  if (overlapsBusy(slotStart, slotEnd, CONFIG.bufferMinutes, busy)) {
+  if (overlapsBusy(slotStart, slotEnd, cfg.bufferMinutes, busy)) {
     return jsonResponse({ error: 'Slot no longer available' }, 409);
   }
 
   // Create event
   const created = await createEvent(accessToken, calendarId, {
-    summary: `Strategy Call — ${name}`,
-    description: `${notes ?? ''}\n\n(booked from redwaterrev.com)`.trim(),
+    summary: `${cfg.summary} — ${name}`,
+    description: `${notes ?? ''}\n\n${cfg.descriptionSuffix}`.trim(),
     start: { dateTime: slotStart.toISOString(), timeZone: CONFIG.timezone },
     end: { dateTime: slotEnd.toISOString(), timeZone: CONFIG.timezone },
     attendees: [{ email, displayName: name }],
@@ -232,13 +265,14 @@ async function handleBook(req: Request): Promise<Response> {
   });
 
   // Insert lead row (non-blocking for the booking result — log but don't fail)
+  const leadSource = source && source.trim() !== '' ? source : `scheduler-${kind}`;
   try {
     await supabaseAdmin.from('website_leads').insert({
       name,
       email,
       industry: industry ?? null,
       notes: notes ?? null,
-      source: 'scheduler',
+      source: leadSource,
     });
   } catch (err) {
     // Intentionally swallow — event was created successfully.

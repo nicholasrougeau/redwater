@@ -1,9 +1,19 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { ArrowLeft, ArrowRight, CalendarCheck, Loader2 } from 'lucide-react';
 
+type MeetingKind = 'audit-30' | 'intro-15';
+
 interface SchedulerProps {
   accent?: 'red' | 'orange';
+  kind?: MeetingKind;
+  source?: string;
+  ctaLabel?: string;
 }
+
+const KIND_META: Record<MeetingKind, { minutes: number; durationLabel: string }> = {
+  'audit-30': { minutes: 30, durationLabel: '30 min on Google Meet' },
+  'intro-15': { minutes: 15, durationLabel: '15 min on Google Meet' },
+};
 
 interface BookingConfirmation {
   meetLink: string | null;
@@ -79,10 +89,16 @@ const accentMap = {
   },
 } as const;
 
-export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
+export const Scheduler = ({
+  accent = 'red',
+  kind = 'audit-30',
+  source,
+  ctaLabel,
+}: SchedulerProps) => {
   const apiUrl = import.meta.env.VITE_SCHEDULER_API_URL as string | undefined;
   const tz = useMemo(() => Intl.DateTimeFormat().resolvedOptions().timeZone, []);
   const accentStyles = accentMap[accent];
+  const kindMeta = KIND_META[kind];
 
   const [weekOffset, setWeekOffset] = useState(0);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -119,7 +135,7 @@ export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
         const from = weekStart.toISOString();
         const to = weekEnd.toISOString();
         const res = await fetch(
-          `${apiUrl}/slots?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`,
+          `${apiUrl}/slots?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}&kind=${encodeURIComponent(kind)}`,
           { method: 'GET' },
         );
         if (!res.ok) throw new Error(`Failed to load slots (${res.status})`);
@@ -138,7 +154,7 @@ export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
     return () => {
       cancelled = true;
     };
-  }, [apiUrl, weekStart, weekEnd]);
+  }, [apiUrl, weekStart, weekEnd, kind]);
 
   const slotsByDay = useMemo(() => {
     const map = new Map<string, string[]>();
@@ -174,6 +190,8 @@ export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
           notes: form.notes,
           website: honeypot,
           loaded_at: loadedAt,
+          kind,
+          source,
         }),
       });
       if (res.status === 429) {
@@ -241,7 +259,7 @@ export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
         <div>
           <h3 className="text-lg font-bold text-zinc-900">Pick a time</h3>
           <p className="text-xs text-zinc-400">
-            Times shown in {tz}. All calls are 30 min on Google Meet.
+            Times shown in {tz}. All calls are {kindMeta.durationLabel}.
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -436,7 +454,7 @@ export const Scheduler = ({ accent = 'red' }: SchedulerProps) => {
             disabled={booking}
             className={`w-full rounded-xl py-4 font-bold text-white transition-all hover:scale-[1.02] disabled:opacity-50 ${accentStyles.button}`}
           >
-            {booking ? 'Booking…' : 'Confirm booking'}
+            {booking ? 'Booking…' : (ctaLabel ?? 'Confirm booking')}
           </button>
           {errorMsg && <p className="text-center text-sm text-red-500">{errorMsg}</p>}
         </form>
