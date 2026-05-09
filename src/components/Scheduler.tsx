@@ -20,10 +20,10 @@ interface SchedulerProps {
   extraFields?: ExtraField[];
 }
 
-const KIND_META: Record<MeetingKind, { minutes: number; durationLabel: string }> = {
-  'audit-30':       { minutes: 30, durationLabel: '30 min on Google Meet' },
-  'intro-15':       { minutes: 15, durationLabel: '15 min on Google Meet' },
-  'audit-inperson': { minutes: 90, durationLabel: '1-2 hrs · In Person'   },
+const KIND_META: Record<MeetingKind, { minutes: number; durationLabel: string; sessionNoun: string }> = {
+  'audit-30':       { minutes: 30, durationLabel: '30 min on Google Meet', sessionNoun: 'calls'  },
+  'intro-15':       { minutes: 15, durationLabel: '15 min on Google Meet', sessionNoun: 'calls'  },
+  'audit-inperson': { minutes: 90, durationLabel: '1-2 hrs · In Person',   sessionNoun: 'audits' },
 };
 
 interface BookingConfirmation {
@@ -286,7 +286,7 @@ export const Scheduler = ({
         <div>
           <h3 className="text-lg font-bold text-zinc-900">Pick a time</h3>
           <p className="text-xs text-zinc-400">
-            Times shown in {tz}. All calls are {kindMeta.durationLabel}.
+            Times shown in {tz}. All {kindMeta.sessionNoun} are {kindMeta.durationLabel}.
           </p>
         </div>
         <div className="flex items-center gap-2">
