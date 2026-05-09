@@ -6,7 +6,6 @@ import {
   CheckCircle2,
   Mail,
   MapPin,
-  PlayCircle,
   Users,
 } from 'lucide-react';
 import { SEO } from '../lib/seo';
@@ -18,10 +17,10 @@ const PROOF_CARDS: { value: string; label: string }[] = [
   { value: '50 hrs/wk', label: 'Content production time cut for a 600-member professional org' },
 ];
 
-const INTRO_BULLETS = [
-  'A quick read on whether AI is actually a fit for your business right now.',
-  'If it is — the 1-2 highest-leverage workflows we\'d look at first.',
-  'If it isn\'t — what to focus on instead. No pitch.',
+const AUDIT_BULLETS = [
+  'We find the 1-2 workflows where AI has the highest return for your specific business.',
+  'You see the actual tools and get a clear picture of what a build looks like.',
+  'You walk away with a real answer — worth it or not. No pitch, no pressure.',
 ];
 
 export const LakeCharles = () => {
@@ -42,12 +41,13 @@ export const LakeCharles = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 grid gap-10 lg:grid-cols-[auto_1fr] lg:items-center"
         >
-          {/* Initials placeholder — swap for a real photo when ready */}
           <div className="relative mx-auto h-32 w-32 lg:h-40 lg:w-40">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-red via-brand-orange to-brand-gold opacity-90 blur-md" />
-            <div className="relative flex h-full w-full items-center justify-center rounded-full bg-zinc-900 text-3xl font-bold tracking-tight text-white lg:text-4xl">
-              NR
-            </div>
+            <img
+              src="/nick.jpg"
+              alt="Nick Rougeau"
+              className="relative h-full w-full rounded-full object-cover object-top"
+            />
           </div>
 
           <div>
@@ -87,23 +87,24 @@ export const LakeCharles = () => {
           </div>
         </section>
 
-        {/* Intro call */}
+        {/* Audit booking */}
         <section id="book" className="mb-20 scroll-mt-24">
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
               <span className="mb-4 inline-block rounded-full border border-brand-orange/20 bg-brand-orange/5 px-3 py-1 text-xs font-bold uppercase tracking-[0.2em] text-brand-orange">
-                Free · 15 min · Google Meet
+                Free · 1-2 hrs · In Person
               </span>
               <h2 className="mb-5 text-3xl font-bold text-zinc-900 md:text-4xl">
-                Grab 15 minutes on my calendar.
+                Book a free AI audit.
               </h2>
               <p className="mb-8 text-zinc-500 leading-relaxed">
-                A quick conversation so I can understand what your business does and whether what I
-                build is actually a fit. If it is, we'll set up a longer working session — usually
-                in person if you're local. If it isn't, you'll know what to do instead.
+                Pick a spot — your office, a coffee shop, wherever's easy. I come to you. We walk
+                through what your business does, I ask a few questions, and I find the one or two
+                places where AI would actually move the needle. Then I show you the tools and
+                exactly how we'd build it. No prep needed on your end.
               </p>
               <ul className="space-y-3">
-                {INTRO_BULLETS.map((b) => (
+                {AUDIT_BULLETS.map((b) => (
                   <li key={b} className="flex items-start gap-3">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-brand-red" />
                     <span className="text-zinc-700">{b}</span>
@@ -118,41 +119,43 @@ export const LakeCharles = () => {
                 <h3 className="text-xl font-bold">Pick a time</h3>
               </div>
               <div className="px-2 pb-2">
-                <Scheduler kind="intro-15" source="lake-charles-landing" ctaLabel="Confirm intro call" />
+                <Scheduler
+                  kind="audit-inperson"
+                  source="lake-charles-audit"
+                  ctaLabel="Book my free audit"
+                  extraFields={[
+                    {
+                      id: 'location',
+                      label: 'Where do you want to meet?',
+                      type: 'select',
+                      options: ['My office', 'Coffee shop', 'Lunch', 'Virtual', 'Wherever works for you'],
+                      required: true,
+                    },
+                    {
+                      id: 'address',
+                      label: 'Address or specific spot',
+                      placeholder: 'e.g. 123 Main St, or "CC\'s Coffee on Ryan St"',
+                      required: true,
+                    },
+                    {
+                      id: 'business',
+                      label: 'What does your business do?',
+                      placeholder: 'e.g. landscaping, legal services, coaching',
+                      required: true,
+                    },
+                    {
+                      id: 'challenges',
+                      label: "What's your biggest challenge right now?",
+                      placeholder: 'Anything goes — operations, team, revenue, time...',
+                      type: 'textarea',
+                    },
+                  ]}
+                />
               </div>
             </div>
           </div>
         </section>
 
-        {/* Want to learn first */}
-        <section className="mb-20">
-          <Link
-            to="/learn"
-            className="group block overflow-hidden rounded-3xl border border-zinc-100 bg-zinc-900 p-8 text-white transition-all hover:scale-[1.01] md:p-12"
-          >
-            <div className="grid items-center gap-8 md:grid-cols-[auto_1fr_auto]">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-red to-brand-orange">
-                <PlayCircle className="h-8 w-8" />
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
-                  Want to learn first?
-                </p>
-                <h3 className="mt-1 text-2xl font-bold md:text-3xl">
-                  Free 15-minute AI crash course.
-                </h3>
-                <p className="mt-2 max-w-2xl text-zinc-400">
-                  Six short videos on what AI actually is, where it pays off in a service business,
-                  and how to start without wasting six months on the wrong build. No email gate.
-                </p>
-              </div>
-              <span className="inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-bold text-zinc-900 transition-transform group-hover:translate-x-1">
-                Watch the course
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </div>
-          </Link>
-        </section>
 
         {/* Local proof */}
         <section className="mb-20 rounded-3xl border border-zinc-100 bg-zinc-50/60 p-8 md:p-12">
@@ -209,8 +212,7 @@ export const LakeCharles = () => {
           </h2>
           <p className="max-w-2xl text-zinc-400">
             If you run an organization, chapter, or team in Lake Charles that could use a free
-            in-person AI session, an email intro goes a long way. I'll send back a one-pager you
-            can pass along.
+            in-person AI session, an email goes a long way.
           </p>
           <a
             href="mailto:nick@redwaterrev.com?subject=Intro%20%E2%80%94%20AI%20talk%20for%20our%20group"

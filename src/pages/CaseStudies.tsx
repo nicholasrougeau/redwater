@@ -12,7 +12,7 @@ interface FeaturedBuild {
 
 const featuredBuilds: FeaturedBuild[] = [
   {
-    title: 'GHL 46-Page Website Builder',
+    title: '46-Page Automated Website Builder',
     problem: 'Agency was burning ~10 hours per site spinning up 40+ page GHL builds tuned to match each client\'s Google Business Profile.',
     build: 'Code + no-code pipeline that ingests a kickoff transcript, GBP data, and optional prior site, then assembles a Google-optimized 46-page GHL site.',
     outcome: 'Delivery cut from ~10 hrs to ~1 hr. Client\'s Google ranking position doubled in under 2 weeks.',

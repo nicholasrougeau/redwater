@@ -1,18 +1,29 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react';
 import { ArrowLeft, ArrowRight, CalendarCheck, Loader2 } from 'lucide-react';
 
-type MeetingKind = 'audit-30' | 'intro-15';
+type MeetingKind = 'audit-30' | 'intro-15' | 'audit-inperson';
+
+interface ExtraField {
+  id: string;
+  label: string;
+  placeholder?: string;
+  required?: boolean;
+  type?: 'text' | 'textarea' | 'select';
+  options?: string[];
+}
 
 interface SchedulerProps {
   accent?: 'red' | 'orange';
   kind?: MeetingKind;
   source?: string;
   ctaLabel?: string;
+  extraFields?: ExtraField[];
 }
 
 const KIND_META: Record<MeetingKind, { minutes: number; durationLabel: string }> = {
-  'audit-30': { minutes: 30, durationLabel: '30 min on Google Meet' },
-  'intro-15': { minutes: 15, durationLabel: '15 min on Google Meet' },
+  'audit-30':       { minutes: 30, durationLabel: '30 min on Google Meet' },
+  'intro-15':       { minutes: 15, durationLabel: '15 min on Google Meet' },
+  'audit-inperson': { minutes: 90, durationLabel: '1-2 hrs · In Person'   },
 };
 
 interface BookingConfirmation {
@@ -89,11 +100,24 @@ const accentMap = {
   },
 } as const;
 
+function buildNotes(
+  fields: ExtraField[],
+  values: Record<string, string>,
+  freeNotes: string,
+): string {
+  const lines = fields
+    .filter((f) => values[f.id])
+    .map((f) => `[${f.label.toUpperCase()}]: ${values[f.id]}`);
+  if (freeNotes.trim()) lines.push(`---\n[NOTES]: ${freeNotes.trim()}`);
+  return lines.join('\n');
+}
+
 export const Scheduler = ({
   accent = 'red',
   kind = 'audit-30',
   source,
   ctaLabel,
+  extraFields,
 }: SchedulerProps) => {
   const apiUrl = import.meta.env.VITE_SCHEDULER_API_URL as string | undefined;
   const tz = useMemo(() => Intl.DateTimeFormat().resolvedOptions().timeZone, []);
@@ -106,6 +130,9 @@ export const Scheduler = ({
   const [loadingSlots, setLoadingSlots] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [form, setForm] = useState({ name: '', email: '', industry: '', notes: '' });
+  const [extraValues, setExtraValues] = useState<Record<string, string>>(() =>
+    Object.fromEntries((extraFields ?? []).map((f) => [f.id, ''])),
+  );
   const [honeypot, setHoneypot] = useState('');
   const [booking, setBooking] = useState(false);
   const [confirmation, setConfirmation] = useState<BookingConfirmation | null>(null);
@@ -187,7 +214,7 @@ export const Scheduler = ({
           name: form.name,
           email: form.email,
           industry: form.industry,
-          notes: form.notes,
+          notes: buildNotes(extraFields ?? [], extraValues, form.notes),
           website: honeypot,
           loaded_at: loadedAt,
           kind,
@@ -419,9 +446,49 @@ export const Scheduler = ({
               onChange={(e) => setForm({ ...form, industry: e.target.value })}
             />
           </div>
+
+          {(extraFields ?? []).map((f) => (
+            <div key={f.id}>
+              <label className="mb-2 block text-sm font-bold text-zinc-700">
+                {f.label}{f.required ? '' : ' (optional)'}
+              </label>
+              {f.type === 'select' ? (
+                <select
+                  required={f.required}
+                  className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 focus:border-brand-orange focus:outline-none"
+                  value={extraValues[f.id] ?? ''}
+                  onChange={(e) => setExtraValues({ ...extraValues, [f.id]: e.target.value })}
+                >
+                  <option value="" disabled>Select one…</option>
+                  {(f.options ?? []).map((opt) => (
+                    <option key={opt} value={opt}>{opt}</option>
+                  ))}
+                </select>
+              ) : f.type === 'textarea' ? (
+                <textarea
+                  rows={3}
+                  required={f.required}
+                  placeholder={f.placeholder}
+                  className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 focus:border-brand-orange focus:outline-none"
+                  value={extraValues[f.id] ?? ''}
+                  onChange={(e) => setExtraValues({ ...extraValues, [f.id]: e.target.value })}
+                />
+              ) : (
+                <input
+                  type="text"
+                  required={f.required}
+                  placeholder={f.placeholder}
+                  className="w-full rounded-xl border border-zinc-200 bg-zinc-50 px-4 py-3 focus:border-brand-orange focus:outline-none"
+                  value={extraValues[f.id] ?? ''}
+                  onChange={(e) => setExtraValues({ ...extraValues, [f.id]: e.target.value })}
+                />
+              )}
+            </div>
+          ))}
+
           <div>
             <label className="mb-2 block text-sm font-bold text-zinc-700">
-              What do you want to scope? (optional)
+              {extraFields?.length ? 'Anything else? (optional)' : 'What do you want to scope? (optional)'}
             </label>
             <textarea
               rows={3}
