@@ -136,6 +136,7 @@ export const Scheduler = ({
   const [honeypot, setHoneypot] = useState('');
   const [booking, setBooking] = useState(false);
   const [confirmation, setConfirmation] = useState<BookingConfirmation | null>(null);
+  const [bookedVirtual, setBookedVirtual] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string>('');
   const [loadedAt] = useState(() => Date.now());
 
@@ -230,6 +231,7 @@ export const Scheduler = ({
         return;
       }
       const body = (await res.json()) as { meet_link?: string | null; starts_at?: string };
+      setBookedVirtual(extraValues['location'] === 'Virtual');
       setConfirmation({
         meetLink: body.meet_link ?? null,
         startsAt: body.starts_at ?? selectedSlot,
@@ -265,7 +267,7 @@ export const Scheduler = ({
         <p className="mb-6 text-zinc-500">
           {fmtFullDate(new Date(confirmation.startsAt))} ({tz}). A calendar invite is on its way.
         </p>
-        {confirmation.meetLink && (
+        {bookedVirtual && confirmation.meetLink && (
           <a
             href={confirmation.meetLink}
             target="_blank"

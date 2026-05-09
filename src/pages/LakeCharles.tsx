@@ -128,7 +128,7 @@ export const LakeCharles = () => {
                       id: 'location',
                       label: 'Where do you want to meet?',
                       type: 'select',
-                      options: ['My office', 'Coffee shop', 'Lunch', 'Virtual', 'Wherever works for you'],
+                      options: ['My office', 'Coffee shop', 'Lunch', 'Virtual'],
                       required: true,
                     },
                     {
