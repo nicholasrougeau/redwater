@@ -41,12 +41,11 @@ export const Lafayette = () => {
           transition={{ duration: 0.6 }}
           className="mb-16 grid gap-10 lg:grid-cols-[auto_1fr] lg:items-center"
         >
-          <div className="relative mx-auto h-32 w-32 lg:h-40 lg:w-40">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-red via-brand-orange to-brand-gold opacity-90 blur-md" />
+          <div className="relative mx-auto h-40 w-40 lg:h-48 lg:w-48">
             <img
-              src="/jack.jpg"
+              src="/jack.png"
               alt="Jack Rougeau"
-              className="relative h-full w-full rounded-full object-cover object-top"
+              className="relative h-full w-full object-contain"
             />
           </div>
 
