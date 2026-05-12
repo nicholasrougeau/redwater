@@ -24,6 +24,9 @@ const Learn = lazy(() => import('./pages/Learn').then((m) => ({ default: m.Learn
 const LakeCharles = lazy(() =>
   import('./pages/LakeCharles').then((m) => ({ default: m.LakeCharles })),
 );
+const Lafayette = lazy(() =>
+  import('./pages/Lafayette').then((m) => ({ default: m.Lafayette })),
+);
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -71,6 +74,7 @@ export default function App() {
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/learn" element={<Learn />} />
               <Route path="/lake-charles" element={<LakeCharles />} />
+              <Route path="/lafayette" element={<Lafayette />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
