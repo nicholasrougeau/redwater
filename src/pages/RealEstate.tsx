@@ -162,7 +162,7 @@ export const RealEstate = () => {
                     value={form.firstName}
                     onChange={set('firstName')}
                     placeholder="Jack"
-                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
+                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
                   />
                 </div>
                 <div>
@@ -173,7 +173,7 @@ export const RealEstate = () => {
                     value={form.lastName}
                     onChange={set('lastName')}
                     placeholder="Rougeau"
-                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
+                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
                   />
                 </div>
               </div>
@@ -188,7 +188,7 @@ export const RealEstate = () => {
                     value={form.phone}
                     onChange={set('phone')}
                     placeholder="(337) 555-0100"
-                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
+                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
                   />
                 </div>
                 <div>
@@ -199,7 +199,7 @@ export const RealEstate = () => {
                     value={form.email}
                     onChange={set('email')}
                     placeholder="you@brokerage.com"
-                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
+                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
                   />
                 </div>
               </div>
@@ -213,7 +213,7 @@ export const RealEstate = () => {
                   value={form.brokerage}
                   onChange={set('brokerage')}
                   placeholder="e.g. RE/MAX of Acadiana"
-                  className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
+                  className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
                 />
               </div>
 
@@ -225,7 +225,7 @@ export const RealEstate = () => {
                     required
                     value={form.role}
                     onChange={set('role')}
-                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
+                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
                   >
                     <option value="" disabled>Select one</option>
                     {ROLE_OPTIONS.map((r) => <option key={r} value={r}>{r}</option>)}
@@ -237,7 +237,7 @@ export const RealEstate = () => {
                     required
                     value={form.agentCount}
                     onChange={set('agentCount')}
-                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-900 outline-none transition focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
+                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
                   >
                     <option value="" disabled>Select one</option>
                     {AGENT_COUNT_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
