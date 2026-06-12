@@ -5,9 +5,6 @@ import { supabase, isSupabaseConfigured } from '../lib/supabase';
 
 const MIN_SUBMIT_MS = 2000;
 
-const ROLE_OPTIONS = ['Owner / Broker', 'Agent', 'Operations / Admin', 'Other'];
-const AGENT_COUNT_OPTIONS = ['Solo agent', '2-5', '6-15', '16-30', '30+'];
-
 type FormData = {
   firstName: string;
   lastName: string;
@@ -215,34 +212,6 @@ export const RealEstate = () => {
                   placeholder="e.g. RE/MAX of Acadiana"
                   className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition placeholder:text-zinc-400 focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
                 />
-              </div>
-
-              {/* Role + Agent count */}
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-zinc-700">Your role</label>
-                  <select
-                    required
-                    value={form.role}
-                    onChange={set('role')}
-                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
-                  >
-                    <option value="" disabled>Select one</option>
-                    {ROLE_OPTIONS.map((r) => <option key={r} value={r}>{r}</option>)}
-                  </select>
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-sm font-semibold text-zinc-700">Agents on your team</label>
-                  <select
-                    required
-                    value={form.agentCount}
-                    onChange={set('agentCount')}
-                    className="w-full rounded-xl border border-zinc-200 bg-white px-4 py-3 text-base text-zinc-900 sm:text-sm outline-none transition focus:border-brand-red focus:ring-2 focus:ring-brand-red/10"
-                  >
-                    <option value="" disabled>Select one</option>
-                    {AGENT_COUNT_OPTIONS.map((o) => <option key={o} value={o}>{o}</option>)}
-                  </select>
-                </div>
               </div>
 
               {/* Consent */}
