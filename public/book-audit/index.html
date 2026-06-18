@@ -142,7 +142,13 @@
     config: { layout: "month_view" },
     calLink: "jack-rougeau-q827rs/ai-audit"
   });
-  Cal.ns["ai-audit"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
+  Cal.ns["ai-audit"]("ui", {
+    theme: "light",
+    cssVarsPerTheme: { light: { "cal-brand": "#E8551F" } },
+    styles: { branding: { brandColor: "#E8551F" } },
+    hideEventTypeDetails: false,
+    layout: "month_view"
+  });
 </script>
 </body>
 </html>
