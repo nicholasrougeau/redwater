@@ -80,14 +80,10 @@
   <div class="wrap">
     <div class="sec-tag lbl r">Schedule it</div>
     <h2 class="sec-h r d1">Pick a time that <span class="serif ink-grad">works for you.</span></h2>
-    <div class="cal-embed r d2">
-      <div class="mark">RR</div>
-      <h3>Scheduling opens here</h3>
-      <p>This is where your live Cal.com booking widget drops in. Until it is wired up, reach out and we will lock a time by hand.</p>
-      <span class="dur-pill"><span class="dot-live"></span>AI audit &middot; 90 min to 3 hr</span>
-      <div style="margin-top:26px"><a href="mailto:jack@redwaterrev.com?subject=AI%20Audit%20Request" class="btn btn-ink">Request a time <span class="a">&rarr;</span></a></div>
-      <p style="margin-top:18px;font-size:12.5px;color:var(--muted-2)">Mockup &middot; Cal.com embed goes here when you are ready to connect it.</p>
+    <div class="cal-embed r d2" style="padding:8px;border-style:solid;text-align:left;background:var(--paper)">
+      <div id="cal-inline" style="width:100%;min-height:680px;border-radius:14px;overflow:hidden"></div>
     </div>
+    <p class="r" style="text-align:center;margin-top:16px;font-size:12.5px;color:var(--muted-2)">Prefer to set it up by hand? Email <a href="mailto:jack@redwaterrev.com?subject=AI%20Audit%20Request" style="color:var(--ink-2)">jack@redwaterrev.com</a>.</p>
   </div>
 </section>
 
@@ -135,6 +131,18 @@
   addEventListener('scroll',function(){nav.classList.toggle('stuck',scrollY>8)},{passive:true});
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}})},{threshold:.1});
   document.querySelectorAll('.r').forEach(function(el){io.observe(el)});
+</script>
+
+<!-- Cal.com inline embed: AI Audit (books onto the shared "Nick + Jack RW" calendar) -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", "ai-audit", { origin: "https://cal.com" });
+  Cal.ns["ai-audit"]("inline", {
+    elementOrSelector: "#cal-inline",
+    config: { layout: "month_view" },
+    calLink: "jack-rougeau-q827rs/ai-audit"
+  });
+  Cal.ns["ai-audit"]("ui", { hideEventTypeDetails: false, layout: "month_view" });
 </script>
 </body>
 </html>
