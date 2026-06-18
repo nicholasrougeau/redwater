@@ -21,17 +21,24 @@ export const NewsletterSection = () => {
       return;
     }
 
-    const formId = import.meta.env.VITE_CONVERTKIT_FORM_ID;
-    if (!formId) {
-      setStatus('error');
-      return;
-    }
+    // Newsletter capture → Kit (ConvertKit) via the kit-capture service.
+    // Tags the subscriber Newsletter + "source: Website" and applies the same
+    // honeypot/too-fast checks server-side.
+    const endpoint =
+      import.meta.env.VITE_NEWSLETTER_ENDPOINT ??
+      'https://kit-capture.vercel.app/api/subscribe';
     setStatus('loading');
     try {
-      const res = await fetch(`https://app.convertkit.com/forms/${formId}/subscriptions`, {
+      const res = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ email_address: email }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          source: 'website',
+          website: honeypot,
+          elapsedMs: Date.now() - loadedAt,
+          referrer: typeof document !== 'undefined' ? document.referrer : null,
+        }),
       });
       if (res.ok) {
         setStatus('success');
