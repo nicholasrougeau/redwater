@@ -3,9 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Talks &amp; Presentations - Redwater Revenue</title>
-<meta name="description" content="Redwater Revenue gives live talks on how to actually use AI in a business. The real playbook, live Q&A, no pitch. Bring us in to speak at your conference or group." />
+<title>Talks &amp; Presentations - Helping Local Businesses Adopt AI - Redwater Revenue</title>
+<meta name="description" content="Redwater Revenue gives live talks on how local businesses can actually adopt AI. The real playbook, live Q&A, no pitch. Bring us in to speak at your conference or group." />
 <link rel="stylesheet" href="/styles.css" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="canonical" href="https://redwaterrev.com/talks/" />
+<script defer data-domain="redwaterrev.com" src="https://plausible.io/js/script.js"></script>
 <style>
   .talk-photo{margin-top:48px;border:1px solid var(--line);border-radius:20px;overflow:hidden;aspect-ratio:16/8;background:linear-gradient(150deg,#2a2622,#14110d);position:relative;display:flex;align-items:center;justify-content:center}
   .talk-photo::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 16%,rgba(255,138,0,.18),transparent 55%)}
@@ -36,11 +41,6 @@
   .or-email .who a.mail{font-family:var(--fb);font-size:15.5px;color:var(--ink-2)}
   .or-email .who a.mail:hover{color:var(--orange)}
 </style>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="icon" type="image/png" href="/favicon.png" />
-<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-<link rel="canonical" href="https://redwaterrev.com/talks/" />
-<script defer data-domain="redwaterrev.com" src="https://plausible.io/js/script.js"></script>
 </head>
 <body>
 
@@ -54,10 +54,12 @@
 <nav id="nav">
   <div class="wrap nav-inner">
     <a href="/" class="logo"><span class="mk">RR</span>Redwater <b>Revenue</b></a>
+    <input type="checkbox" id="navToggle" class="nav-cb" aria-label="Open navigation menu" />
+    <label for="navToggle" class="nav-burger" aria-label="Open menu"><span></span><span></span><span></span></label>
     <div class="nav-mid">
       <a href="/systems/">Systems</a>
       <a href="/work/">Work</a>
-      <a href="/approach/">Approach</a>
+      <a href="/approach/">How we work</a>
       <a href="/about/">About</a>
       <a href="/talks/" class="active">Talks</a>
     </div>
@@ -121,8 +123,8 @@
         <div class="rfield"><label for="ln">Last name</label><input id="ln" type="text" placeholder="Rougeau" required /></div>
       </div>
       <div class="grid2">
-        <div class="rfield"><label for="em">Email</label><input id="em" type="text" placeholder="you@company.com" required /></div>
-        <div class="rfield"><label for="ph">Phone</label><input id="ph" type="text" placeholder="(337) 555-0100" /></div>
+        <div class="rfield"><label for="em">Email</label><input id="em" type="email" autocomplete="email" placeholder="you@company.com" required /></div>
+        <div class="rfield"><label for="ph">Phone</label><input id="ph" type="tel" autocomplete="tel" placeholder="(337) 555-0100" /></div>
       </div>
       <div class="rfield"><label for="org">Event or organization name</label><input id="org" type="text" placeholder="e.g. Acadiana Business Summit" required /></div>
       <div class="grid2">
@@ -164,13 +166,13 @@
     <div class="foot">
       <div class="about">
         <a href="/" class="logo"><span class="mk">RR</span>Redwater <b>Revenue</b></a>
-        <p>Custom AI tooling for small and mid-market businesses. Built in Louisiana, shipped everywhere.</p>
+        <p>Helping local businesses adopt AI. Custom CRMs, dashboards, and automations, built in Louisiana and yours to keep.</p>
       </div>
-      <div class="col"><h5>Explore</h5><a href="/systems/">Systems</a><a href="/work/">Work</a><a href="/approach/">Approach</a><a href="/about/">About</a><a href="/talks/">Talks</a></div>
+      <div class="col"><h5>Explore</h5><a href="/systems/">Systems</a><a href="/work/">Work</a><a href="/approach/">How we work</a><a href="/about/">About</a><a href="/talks/">Talks</a></div>
       <div class="col"><h5>Systems</h5><a href="/systems/#crm">Custom CRMs</a><a href="/systems/#dashboards">Dashboards</a><a href="/systems/#automations">Automations</a><a href="/systems/#internal">Internal Tools</a></div>
       <div class="col"><h5>Start</h5><a href="/book-audit/">Book your AI audit</a><a href="/talks/">Book a talk</a></div>
     </div>
-    <div class="foot-bot"><span>&copy; 2026 Redwater Revenue. All rights reserved.</span><span>redwaterrev.com</span></div>
+    <div class="foot-bot"><span>&copy; 2026 Redwater Revenue. All rights reserved.</span><a href="https://redwaterrev.com">redwaterrev.com</a></div>
   </div>
 </footer>
 
