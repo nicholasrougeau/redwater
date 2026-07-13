@@ -37,8 +37,8 @@ nav{position:sticky;top:0;z-index:50;background:rgba(253,249,243,.82);backdrop-f
 nav.stuck{border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:76px}
 .logo{display:flex;align-items:center;gap:11px;font-family:var(--fd);font-weight:600;font-size:18.5px;letter-spacing:-.02em}
-.logo img{height:23px;width:auto;display:block}
-footer .logo img{height:26px}
+.logo img{height:22px;width:auto;display:block}
+footer .logo img{height:24px}
 .logo .mk{width:30px;height:30px;border-radius:8px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--fd);font-weight:800;font-size:13px;letter-spacing:-1px}
 .logo b{font-weight:600}
 .nav-mid{display:flex;gap:34px}
