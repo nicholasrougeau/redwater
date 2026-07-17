@@ -21,6 +21,10 @@
 <link rel="canonical" href="https://redwaterrev.com/work/" />
 <script defer data-domain="redwaterrev.com" src="https://plausible.io/js/script.js"></script>
 <style>
+  /* Kill the double-tap-to-zoom lurch when tapping demo cards and tabs.
+     Pinch-to-zoom is untouched. */
+  body{touch-action:manipulation}
+
   .ghead{padding:74px 0 28px}
   .ghead .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:22px}
   .ghead .eyebrow::after{content:'';height:1px;width:80px;background:var(--line)}
@@ -40,12 +44,15 @@
   /* interactive demo grid */
   .demos{display:grid;grid-template-columns:1fr 1fr;gap:22px}
   @media(max-width:760px){.demos{grid-template-columns:1fr}}
-  .demo{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column}
+  .demo{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--paper);display:flex;flex-direction:column;scroll-margin-top:74px}
   .demo.wide{grid-column:1 / -1}
   .demo.live{grid-column:1 / -1}
   .demo-stage{position:relative;aspect-ratio:16/10;background:#14110d;overflow:hidden}
-  .demo.live .demo-stage{aspect-ratio:auto;height:660px}
-  @media(max-width:760px){.demo.live .demo-stage{height:80vh}}
+  .demo.live .demo-stage{aspect-ratio:auto;height:720px}
+  /* Phone: give the demo the tallest frame that still leaves the Close button
+     and the card's title visibly attached to it. dvh so iOS's collapsing
+     address bar doesn't leave a gap or clip the bottom row of the demo. */
+  @media(max-width:760px){.demo.live .demo-stage{height:86dvh}}
   .demo-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:left top;display:block}
   .demo-stage .overlay{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;cursor:pointer;background:linear-gradient(160deg,rgba(20,17,13,.18),rgba(20,17,13,.58));transition:background .25s;width:100%;border:0}
   .demo-stage .overlay:hover{background:linear-gradient(160deg,rgba(20,17,13,.06),rgba(20,17,13,.46))}
@@ -319,19 +326,33 @@
     overlay.addEventListener('click',function(){
       if(card.classList.contains('live'))return;
       var f=document.createElement('iframe');
-      f.src=card.getAttribute('data-src');
+      // embed=1 tells the demo hub to drop its own bottom "All demos" bar —
+      // this card's Close button and Full screen link already cover it.
+      var src=card.getAttribute('data-src');
+      f.src=src+(src.indexOf('?')<0?'?':'&')+'embed=1';
       f.title=card.getAttribute('data-title')+' interactive demo';
       f.setAttribute('loading','lazy');
       f.setAttribute('allow','clipboard-write; fullscreen');
       stage.appendChild(f);
       card.classList.add('live');
       overlay.style.display='none';
+      // The stage jumps to full height on launch, so on a phone the demo can
+      // open mostly below the fold. Bring it up once the new height is applied.
+      requestAnimationFrame(function(){
+        var r=stage.getBoundingClientRect();
+        if(r.top<0||r.bottom>innerHeight){
+          card.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
     });
     closeBtn.addEventListener('click',function(){
       var f=stage.querySelector('iframe');
       if(f)f.remove();
       card.classList.remove('live');
       overlay.style.display='';
+      // Collapsing the stage pulls the page up under the scroll position and
+      // can strand you past the card. Keep the card you just closed in view.
+      card.scrollIntoView({block:'nearest'});
     });
   });
 </script>
