@@ -10,3 +10,5 @@ coverage/
 supabase/functions/.env
 
 supabase/.temp/
+
+.vercel
