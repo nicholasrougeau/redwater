@@ -6,10 +6,23 @@ GitHub's terms don't allow using Pages to host a commercial business site.
 ## Deploy
 
 ```bash
-npx vercel deploy --prod --yes --token $VERCEL_TOKEN_NICK --scope nick-1485s-projects
+VERCEL_TOKEN=$VERCEL_TOKEN_BUSINESS npx vercel deploy --prod --yes
 ```
 
-Run it from the repo root. That's the whole deploy — there is no git-push-triggered build anymore
+Run it from the repo root, with `VERCEL_TOKEN_BUSINESS` from `Recovered/.env`.
+
+> **Corrected 2026-08-24.** This file previously said `--token $VERCEL_TOKEN_NICK --scope
+> nick-1485s-projects`. **`VERCEL_TOKEN_NICK` does not exist** on any machine and never did.
+> This project (`redwater-site-vercel`) lives in the same team as the demo hub,
+> `nick-1485s-projects` / `team_zOv3ovwPkca8EdoWCo5DKrzq`, so the one real token deploys both.
+> The scope flag is unnecessary once the folder is linked.
+>
+> Also: the repo ships **no `.vercel/` linkage**. Running `vercel deploy` from an unlinked
+> folder creates a NEW project named after the directory instead of deploying this site. If
+> `.vercel/project.json` is missing, write it pointing at `prj_gNxsPNhXqQYyGrA5G4wCV6eTs0Y7`
+> before deploying.
+
+That's the whole deploy — there is no git-push-triggered build anymore
 (Vercel isn't connected to GitHub here, because that link needs an interactive OAuth login).
 
 Drop `--prod` for a preview deploy you can check before promoting.
